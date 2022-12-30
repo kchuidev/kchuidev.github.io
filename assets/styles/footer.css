@@ -1,0 +1,24 @@
+/*
+	kchui.dev
+	footer.css
+*/
+#footer_container {
+	background-color: var(--colour-background-header);
+	position: static;
+	bottom: 0;
+	font-size: 0.9rem;
+	padding: 0.2rem 0;
+}
+#footer {
+	max-width: var(--width-content);
+	color: #FFFFFF;
+	margin: auto;
+	margin-bottom: 0;
+	user-select: none;
+}
+@media(max-width:1048px) {
+	#footer {
+		margin-left: 0.9rem;
+		margin-right: 0.9rem;
+	}
+}
