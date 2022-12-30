@@ -2,3 +2,10 @@
   kchui.dev
   homepage.css
 */
+
+#time_display {
+  font-family: var(--font-family-light);
+}
+#time_display_value {
+  font-family: var(--font-family-medium);
+}

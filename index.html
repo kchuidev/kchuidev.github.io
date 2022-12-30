@@ -10,13 +10,13 @@
     <meta name="format-detection" content="telephone=no">
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <!--css-->
+    <!--external css-->
     <link rel="stylesheet" href="assets/styles/basis.css">
     <link rel="stylesheet" href="assets/styles/header.css">
     <link rel="stylesheet" href="assets/styles/footer.css">
     <link rel="stylesheet" href="assets/styles/notification.css">
     <link rel="stylesheet" href="assets/styles/homepage.css">
-    <!--js-->
+    <!--external js-->
     <script src="assets/scripts/menu.js" defer></script>
   </head>
   <body>
@@ -41,11 +41,35 @@
     </div>
     <!--content-->
     <div id="content_container">
-      <p>Welcome to my world!</p>
+      <p id="time_display">Time: <span id="time_display_value">-</span></p>
     </div>
     <!--footer-->
     <div id="footer_container">
       <p id="footer">This is the footer.</p>
     </div>
+
+    <!--internal js-->
+    <script>
+      function displayTime() {
+        const time = new Date();
+        const time_display_value = document.getElementById("time_display_value");
+        const time_date_options = {
+          weekday: "short",
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        };
+        const time_time_options = {
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit"
+        };
+        time_display_value.innerHTML = time.toLocaleDateString('en-GB', time_date_options) + "&nbsp;" + time.toLocaleTimeString('en-GB', time_time_options);
+        return;
+      }
+
+      setInterval(displayTime, 1000);
+    </script>
   </body>
 </html>
