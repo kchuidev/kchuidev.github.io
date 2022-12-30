@@ -1,26 +1,26 @@
 /*
-	kchui.dev
-	about-me.css
+  kchui.dev
+  about-me.css
 */
 
 #about_table tr td {
-	padding: 1.4rem 0 0 0;
-	border-bottom: var(--border-width-table) solid var(--border-colour-table);
+  padding: 1.4rem 0 0 0;
+  border-bottom: var(--border-width-table) solid var(--border-colour-table);
 }
 #about_table .table_label {
-	width: 30%;
-	vertical-align: bottom;
-	font-family: var(--font-family-light);
+  width: 30%;
+  vertical-align: bottom;
+  font-family: var(--font-family-light);
 }
 #about_table .table_value {
-	vertical-align: bottom;
-	font-family: var(--font-family-medium);
+  vertical-align: bottom;
+  font-family: var(--font-family-medium);
 }
 @media ( max-width: 576px ) {
-	#about_table .table_label {
-		font-size: 0.9rem;
-	}
-	#about_table .table_value {
-		font-size: 0.9rem;
-	}
+  #about_table .table_label {
+    font-size: 0.9rem;
+  }
+  #about_table .table_value {
+    font-size: 0.9rem;
+  }
 }

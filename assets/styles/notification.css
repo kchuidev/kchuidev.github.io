@@ -1,22 +1,22 @@
 /*
-	kchui.dev
-	notification.css
+  kchui.dev
+  notification.css
 */
 #notification_container {
-	background-color: #000000;
-	position: static;
-	font-size: 0.9rem;
-	padding: 0.2rem 0;
+  background-color: #000000;
+  position: static;
+  font-size: 0.9rem;
+  padding: 0.2rem 0;
 }
 #notification {
-	max-width: var(--width-content);
-	color: #FFFFFF;
-	margin: auto;
-	user-select: none;
+  max-width: var(--width-content);
+  color: #FFFFFF;
+  margin: auto;
+  user-select: none;
 }
 @media(max-width:1048px) {
-	#notification {
-		margin-left: 0.9rem;
-		margin-right: 0.9rem;
-	}
+  #notification {
+    margin-left: 0.9rem;
+    margin-right: 0.9rem;
+  }
 }
