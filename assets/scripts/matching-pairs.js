@@ -5,7 +5,7 @@
 
 let cards = document.querySelectorAll(".cards");
 let cards_back = document.querySelectorAll(".cards_back");
-let symbols = ["&#9818;", "&#9819;", "&#9820;", "&#9821;", "&#9822;", "&#9823;", "&#10021;", "&#9876;", "&#9818;", "&#9819;", "&#9820;", "&#9821;", "&#9822;", "&#9823;", "&#10021;", "&#9876;"];
+let symbols = ["&#9818;&#xFE0E;", "&#9819;&#xFE0E;", "&#9820;&#xFE0E;", "&#9821;&#xFE0E;", "&#9822;&#xFE0E;", "&#9823;&#xFE0E;", "&#10021;&#xFE0E;", "&#9876;&#xFE0E;", "&#9818;&#xFE0E;", "&#9819;&#xFE0E;", "&#9820;&#xFE0E;", "&#9821;&#xFE0E;", "&#9822;&#xFE0E;", "&#9823;&#xFE0E;", "&#10021;&#xFE0E;", "&#9876;&#xFE0E;"];
 let attempt = 0;
 let cards_cleared = 0;
 let time_used = 0;
