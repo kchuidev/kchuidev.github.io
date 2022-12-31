@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="assets/styles/notification.css">
     <link rel="stylesheet" href="assets/styles/homepage.css">
     <!--external js-->
+    <script src="assets/scripts/tracker.js"></script>
     <script src="assets/scripts/menu.js" defer></script>
   </head>
   <body>
@@ -41,7 +42,8 @@
     </div>
     <!--content-->
     <div id="content_container">
-      <p id="time_display">Time: <span id="time_display_value">-</span></p>
+      <p class="time_display">Current Time: <span id="time_current_display" class="time_display_value">-</span></p>
+      <p class="time_display">Last Visit: <span id="time_last_visit_display" class="time_display_value">-</span></p>
     </div>
     <!--footer-->
     <div id="footer_container">
@@ -49,27 +51,26 @@
     </div>
 
     <!--internal js-->
+
     <script>
       function displayTime() {
         const time = new Date();
-        const time_display_value = document.getElementById("time_display_value");
-        const time_date_options = {
-          weekday: "short",
-          year: "numeric",
-          month: "long",
-          day: "numeric"
-        };
-        const time_time_options = {
-          hour12: false,
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit"
-        };
-        time_display_value.innerHTML = time.toLocaleDateString('en-GB', time_date_options) + "&nbsp;" + time.toLocaleTimeString('en-GB', time_time_options);
+        const time_current_display = document.getElementById("time_current_display");
+        time_current_display.innerHTML = time.toDateString() + "&nbsp;" + time.toLocaleTimeString('en-GB', { hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" });
         return;
       }
 
       setInterval(displayTime, 1000);
+    </script>
+
+    <script>
+      const time_last_visit_display = document.getElementById("time_last_visit_display");
+      if ( time_last_visit != "N/A" ) {
+        time_last_visit_milliseconds = new Date(Number(time_last_visit));
+        time_last_visit_display.innerHTML = time_last_visit_milliseconds.toDateString() + "&nbsp;" + time_last_visit_milliseconds.toLocaleTimeString('en-GB', { hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" });
+      } else {
+        time_last_visit_display.innerHTML = time_last_visit;
+      }
     </script>
   </body>
 </html>

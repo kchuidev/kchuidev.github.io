@@ -3,9 +3,9 @@
   homepage.css
 */
 
-#time_display {
+.time_display {
   font-family: var(--font-family-light);
 }
-#time_display_value {
+.time_display_value {
   font-family: var(--font-family-medium);
 }
