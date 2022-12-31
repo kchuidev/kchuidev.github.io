@@ -1,0 +1,57 @@
+/*
+  kchui.dev
+  matching-pairs.css
+*/
+
+#field_container {
+  width: 360px;
+  margin: auto;
+}
+.cards_row {
+  margin: 16px 0;
+}
+.cards {
+  width: 100%;
+  max-width: 70px;
+  height: 80px;
+  margin: 0 8px;
+  cursor: pointer;
+  perspective: 1000px;
+}
+.cards_sides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.cards:hover .cards_sides {
+  transform: rotateY(40deg);
+}
+.cards.chosen .cards_sides, .cards.cleared .cards_sides {
+  transform: rotateY(180deg);
+}
+.cards.deactivated {
+  cursor: not-allowed;
+}
+.cards_front, .cards_back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  text-align: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.cards_front {
+  background-color: #00B377;
+  font-size: 20px;
+  font-family: var(--font-family-bold);
+  padding-top: 40%;
+}
+.cards_back {
+  background-color: #DF921F;
+  font-size: 40px;
+  padding-top: 20%;
+  transform: rotateY(180deg);
+}
