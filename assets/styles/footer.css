@@ -8,6 +8,7 @@
   bottom: 0;
   font-size: 0.9rem;
   padding: 0.2rem 0;
+  z-index: 10;
 }
 #footer {
   max-width: var(--width-content);
