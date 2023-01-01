@@ -92,6 +92,7 @@ p {
   color: var(--colour-paragraph);
   size: var(--font-size);
   margin: 0.4rem 0 0.4rem 0;
+  line-height: 1.6rem;
 }
 a {
   color: var(--colour-hyperlink);
