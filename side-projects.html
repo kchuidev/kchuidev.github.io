@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>kchui.dev</title>
+    <title>Side Projects - kchui.dev</title>
     <!--meta-->
     <meta name="author" content="kchui">
     <meta name="description" content="Where records are kept, experiments are carried out, and also personal secrets are revealed">
@@ -11,17 +11,16 @@
     <!--base-->
     <base href="https://kchui.dev/" target="_self">
     <!--canonical-->
-    <link rel="canonical" href="https://kchui.dev/index.html">
+    <link rel="canonical" href="https://kchui.dev/side-projects.html">
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <!--external css-->
+    <!--css-->
     <link rel="stylesheet" href="assets/styles/basis.css">
     <link rel="stylesheet" href="assets/styles/header.css">
     <link rel="stylesheet" href="assets/styles/footer.css">
     <link rel="stylesheet" href="assets/styles/notification.css">
-    <link rel="stylesheet" href="assets/styles/homepage.css">
-    <!--external js-->
-    <script src="assets/scripts/tracker.js"></script>
+    <link rel="stylesheet" href="assets/styles/side-projects.css">
+    <!--js-->
     <script src="assets/scripts/notification.js" defer></script>
     <script src="assets/scripts/menu.js" defer></script>
   </head>
@@ -48,35 +47,22 @@
     </div>
     <!--content-->
     <div id="content_container">
-      <p class="time_display">Current Time: <span id="time_current_display" class="time_display_value">-</span></p>
-      <p class="time_display">Last Visit: <span id="time_last_visit_display" class="time_display_value">-</span></p>
+      <h3>Side Projects</h3>
+      <div class="row">
+        <div class="col-md_3 col_12">
+          <a class="side-projects_links" href="/matching-pairs.html"><img class="side-projects_icons" src="assets/images/icons/matching-pairs.png"></a>
+        </div>
+        <div class="col_auto">
+          <div class="side-projects_introduction">
+            <p class="side-projects_titles"><a class="side-projects_links" href="/matching-pairs.html">Matching Pairs</a></p>
+            <p><span class="side-projects_technologies_used_label">Technologies used:</span> <span class="side-projects_technologies_used_value">HTML, CSS, JavaScript</span><br>Matching Pairs is a traditional game that tests the player's memory. In each round, a total of 16 cards are presented face down to the player. The player chooses to flip two cards. If they share the same pattern, they are cleared. If they have different patterns, they are laid face down. The player are asked to clear all the cards as fast as possible.</p>
+          </div>
+        </div>
+      </div>
     </div>
     <!--footer-->
     <div id="footer_container">
       <p id="footer">This is the footer.</p>
     </div>
-
-    <!--internal js-->
-
-    <script>
-      function displayTime() {
-        const time = new Date();
-        const time_current_display = document.getElementById("time_current_display");
-        time_current_display.innerHTML = time.toDateString() + "&nbsp;" + time.toLocaleTimeString('en-GB', { hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" });
-        return;
-      }
-
-      setInterval(displayTime, 1000);
-    </script>
-
-    <script>
-      const time_last_visit_display = document.getElementById("time_last_visit_display");
-      if ( time_last_visit != "N/A" ) {
-        time_last_visit_milliseconds = new Date(Number(time_last_visit));
-        time_last_visit_display.innerHTML = time_last_visit_milliseconds.toDateString() + "&nbsp;" + time_last_visit_milliseconds.toLocaleTimeString('en-GB', { hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" });
-      } else {
-        time_last_visit_display.innerHTML = time_last_visit;
-      }
-    </script>
   </body>
 </html>

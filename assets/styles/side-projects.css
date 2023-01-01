@@ -1,0 +1,30 @@
+/*
+  kchui.dev
+  side-projects.css
+*/
+
+.side-projects_links:hover .side-projects_icons {
+  opacity: 1;
+}
+.side-projects_icons {
+  opacity: 0.6;
+  max-width: 200px;
+  display: block;
+  margin: auto;
+  transition: opacity 0.6s;
+}
+.side-projects_titles {
+  font-size: 1.2rem;
+  font-family: var(--font-family-medium);
+}
+.side-projects_technologies_used_label {
+  font-family: var(--font-family-light);
+}
+.side-projects_technologies_used_value {
+  font-family: var(--font-family-medium);
+}
+@media ( max-width: 768px ) {
+  .side-projects_titles {
+    text-align: center;
+  }
+}
