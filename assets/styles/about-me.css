@@ -5,22 +5,20 @@
 
 #about-me_table tr td {
   padding: 1.4rem 0 0 0;
-  border-bottom: var(--border-width-table) solid var(--border-colour-table);
+  /* border-bottom: var(--border-width-table) solid var(--border-colour-table); */
 }
-#about-me_table .table_label {
-  width: 30%;
-  vertical-align: bottom;
-  font-family: var(--font-family-light);
+#about-me_table .labels {
+  width: 20%;
+  vertical-align: top;
 }
-#about-me_table .table_value {
-  vertical-align: bottom;
-  font-family: var(--font-family-medium);
+#about-me_table .values {
+  vertical-align: top;
 }
 @media ( max-width: 576px ) {
-  #about-me_table .table_label {
-    font-size: 0.9rem;
+  #about-me_table tr td {
+    font-size: 1.1rem;
   }
-  #about-me_table .table_value {
-    font-size: 0.9rem;
+  #about-me_table .labels {
+    width: 40%;
   }
 }

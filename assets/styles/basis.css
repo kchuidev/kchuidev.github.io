@@ -94,6 +94,12 @@ p {
   margin: 0.4rem 0 0.4rem 0;
   line-height: 1.6rem;
 }
+.labels {
+  font-family: var(--font-family-light);
+}
+.values {
+  font-family: var(--font-family-medium);
+}
 a {
   color: var(--colour-hyperlink);
   size: var(--font-size);
@@ -108,12 +114,6 @@ img {
 table {
   width: 100%;
   border-collapse: collapse;
-}
-.table_label {
-  font-family: var(--font-family-light);
-}
-.table_value {
-  font-family: var(--font-family-medium);
 }
 
 #content_container {

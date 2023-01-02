@@ -17,12 +17,6 @@
   font-size: 1.2rem;
   font-family: var(--font-family-medium);
 }
-.side-projects_technologies_used_label {
-  font-family: var(--font-family-light);
-}
-.side-projects_technologies_used_value {
-  font-family: var(--font-family-medium);
-}
 @media ( max-width: 768px ) {
   .side-projects_titles {
     text-align: center;
