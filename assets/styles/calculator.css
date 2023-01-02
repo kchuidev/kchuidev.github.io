@@ -1,0 +1,70 @@
+/*
+  kchui.dev
+  calculator.css
+*/
+
+#calculator {
+  max-width: 480px;
+  margin: auto;
+}
+#calculator #display {
+  background-color: #000000;
+  margin: 0 8px 16px 8px;
+  padding: 10px;
+}
+#calculator #display span {
+  display: block;
+  border: none;
+  width: 100%;
+  text-align: right;
+  padding: 4px;
+  color: #FFFFFF;
+  user-select: none;
+  pointer-events: none;
+  background-color: #000000;
+}
+#calculator #display #formula {
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#calculator #display #number {
+  font-size: 20px;
+}
+#calculator .buttons {
+  width: 100%;
+  max-width: 100px;
+  display: block;
+  color: #FFFFFF;
+  background-color: #808080;
+  transition: background-color 0.6s;
+  border-radius: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0;
+  padding: 12px 0;
+  font-size: 18px;
+}
+#calculator .buttons.pressed {
+  background-color: #E6E6E6;
+}
+#calculator .buttons[data-digit="0"] {
+  max-width: 220px;
+}
+#calculator .buttons[data-sign="equality"] {
+  font-size: 20px;
+  color: #FFFFFF;
+  background-color: #0059B3;
+  max-width: 460px;
+}
+
+@media ( max-width: 576px ) {
+  /* #calculator .buttons[data-digit="0"] {
+    max-width: calc(100vw - 40%);
+  }
+  #calculator .buttons[data-sign="equality"] {
+    max-width: calc(100vw - 20%);
+  } */
+}
