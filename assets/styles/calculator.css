@@ -31,16 +31,16 @@
 #calculator #display #number {
   font-size: 20px;
 }
+#calculator .button_containers {
+  margin: 8px;
+}
 #calculator .buttons {
   width: 100%;
-  max-width: 100px;
   display: block;
   color: #FFFFFF;
   background-color: #808080;
   transition: background-color 0.6s;
   border-radius: 10px;
-  margin-top: 8px;
-  margin-bottom: 8px;
   margin-left: auto;
   margin-right: auto;
   border: 0;
@@ -50,14 +50,13 @@
 #calculator .buttons.pressed {
   background-color: #E6E6E6;
 }
-#calculator .buttons[data-digit="0"] {
-  max-width: 220px;
-}
 #calculator .buttons[data-sign="equality"] {
   font-size: 20px;
   color: #FFFFFF;
   background-color: #0059B3;
-  max-width: 460px;
+}
+#calculator .buttons[data-sign="equality"].pressed {
+  background-color: #3399FF;
 }
 
 @media ( max-width: 576px ) {
