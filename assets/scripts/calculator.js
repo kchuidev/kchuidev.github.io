@@ -11,6 +11,13 @@ let formula_display = document.getElementById("formula");
 let number_display = document.getElementById("number");
 let buttons = document.getElementsByClassName("buttons");
 
+math.config({
+  number: 'BigNumber',
+  precision: 64,
+  epsilon: 1e-60
+});
+
+
 function initiate() {
   formula = "";
   number = "";
@@ -29,11 +36,12 @@ function display(value, type) {
       formula_display.innerHTML = formula;
       return;
     case ("number"):
-      if ( integer != false ) {
-        number_display.innerHTML = Number(value);
-      } else {
-        number_display.innerHTML = parseFloat(value);
-      }
+      number_display.innerHTML = Number(value);
+      // if ( integer != false ) {
+      //   number_display.innerHTML = Number(value);
+      // } else {
+      //   number_display.innerHTML = parseFloat(value);
+      // }
       return;
   }
 }
@@ -58,7 +66,7 @@ function input(event) {
     case (key.hasAttribute("data-sign")):
       switch ( key.getAttribute("data-sign") ) {
         case ( "." ):
-          if ( integer != false ) {
+          if ( integer != false && formula != "" ) {
             integer = false;
             formula += key.getAttribute("data-sign");
             number += key.getAttribute("data-sign");
@@ -68,14 +76,18 @@ function input(event) {
           }
           return;
         case ( "equality" ):
-          number = eval(formula);
-          display(number, "number");
+          if ( formula != "" ) {
+            number = math.evaluate(formula);
+            display(number, "number");
+          }
           return;
         default:
-          integer = true;
-          formula += key.getAttribute("data-sign");
-          number = "";
-          display(formula, "formula");
+          if ( formula != "" ) {
+            integer = true;
+            formula += key.getAttribute("data-sign");
+            number = "";
+            display(formula, "formula");
+          }
           return;
       }
   }
