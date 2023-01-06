@@ -50,12 +50,12 @@
 #calculator .buttons.pressed {
   background-color: #E6E6E6;
 }
-#calculator .buttons[data-sign="equality"] {
+#calculator .buttons[data-sign="="] {
   font-size: 20px;
   color: #FFFFFF;
   background-color: #0059B3;
 }
-#calculator .buttons[data-sign="equality"].pressed {
+#calculator .buttons[data-sign="="].pressed {
   background-color: #3399FF;
 }
 
