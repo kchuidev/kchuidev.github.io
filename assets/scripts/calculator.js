@@ -5,7 +5,7 @@
 
 let formula;
 let number;
-let key;
+let key_pressed;
 let integer;
 let formula_display = document.getElementById("formula");
 let number_display = document.getElementById("number");
@@ -17,7 +17,6 @@ math.config({
   epsilon: 1e-60
 });
 
-
 function initiate() {
   formula = "";
   number = "";
@@ -25,8 +24,16 @@ function initiate() {
   formula_display.innerHTML = "-";
   number_display.innerHTML = 0;
   for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("mousedown", press);
-    buttons[i].addEventListener("click", input);
+    buttons[i].addEventListener("mousedown", (event)=>{
+      event = event || window.event; //for Internet Explorer
+      key_pressed = event.target || event.key;
+      press(key_pressed);
+    });
+    buttons[i].addEventListener("click", (event)=>{
+      event = event || window.event; //for Internet Explorer
+      key_pressed = event.target || event.key;
+      input(key_pressed);
+    });
   }
 }
 
@@ -46,30 +53,33 @@ function display(value, type) {
   }
 }
 
-function press(event) {
-  event = event || window.event;
-  key = event.target;
-  key.classList.add("pressed");
-  setTimeout(()=>{key.classList.remove("pressed");}, 200);
+// function press(event) {
+//   event = event || window.event; //for Internet Explorer
+//   key = event.target || event.key;
+//   key.classList.add("pressed");
+//   setTimeout(()=>{key.classList.remove("pressed");}, 200);
+// }
+
+function press(key_pressed) {
+  key_pressed.classList.add("pressed");
+  setTimeout(()=>{key_pressed.classList.remove("pressed");}, 200);
 }
 
-function input(event) {
-  event = event || window.event;
-  key = event.target;
+function input(key_pressed) {
   switch (true) {
-    case (key.hasAttribute("data-digit")):
-      formula += key.getAttribute("data-digit");
-      number += key.getAttribute("data-digit");
+    case (key_pressed.hasAttribute("data-digit")):
+      formula += key_pressed.getAttribute("data-digit");
+      number += key_pressed.getAttribute("data-digit");
       display(formula, "formula");
       display(number, "number");
       return;
-    case (key.hasAttribute("data-sign")):
-      switch ( key.getAttribute("data-sign") ) {
+    case (key_pressed.hasAttribute("data-sign")):
+      switch ( key_pressed.getAttribute("data-sign") ) {
         case ( "." ):
           if ( integer != false && formula != "" ) {
             integer = false;
-            formula += key.getAttribute("data-sign");
-            number += key.getAttribute("data-sign");
+            formula += key_pressed.getAttribute("data-sign");
+            number += key_pressed.getAttribute("data-sign");
             display(formula, "formula");
             display(number, "number");
             number_display.innerHTML += ".";
@@ -84,7 +94,7 @@ function input(event) {
         default:
           if ( formula != "" ) {
             integer = true;
-            formula += key.getAttribute("data-sign");
+            formula += key_pressed.getAttribute("data-sign");
             number = "";
             display(formula, "formula");
           }
@@ -94,3 +104,5 @@ function input(event) {
 }
 
 initiate();
+
+document.onkeydown = (e)=>{console.log(e);};
