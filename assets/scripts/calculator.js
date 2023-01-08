@@ -132,11 +132,15 @@ function input(target) {
                 position_last_sign = formula.lastIndexOf(e);
               } 
             });
-            number = "";
-            formula = formula.slice(0, position_last_sign + 1);
-            display(formula, "formula");
-            display(number, "number");
-            formula_calculated = false;
+            if ( position_last_sign == 0 ) {
+              initiate();
+            } else {
+              number = "";
+              formula = formula.slice(0, position_last_sign + 1);
+              display(formula, "formula");
+              display(number, "number");
+              formula_calculated = false;
+            }
           }
           return;
       }
