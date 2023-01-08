@@ -26,6 +26,7 @@
 #calculator #display #formula {
   font-size: 14px;
   white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 #calculator #display #number {
@@ -46,6 +47,7 @@
   border: 0;
   padding: 12px 0;
   font-size: 18px;
+  cursor: pointer;
 }
 #calculator .buttons.pressed {
   background-color: #E6E6E6;
@@ -58,12 +60,15 @@
 #calculator .buttons[data-sign="="].pressed {
   background-color: #3399FF;
 }
-
-@media ( max-width: 576px ) {
-  /* #calculator .buttons[data-digit="0"] {
-    max-width: calc(100vw - 40%);
-  }
-  #calculator .buttons[data-sign="equality"] {
-    max-width: calc(100vw - 20%);
-  } */
+#calculator .buttons[data-function="ce"] {
+  background-color: #997300;
+}
+#calculator .buttons[data-function="ce"].pressed {
+  background-color: #FFC61A;
+}
+#calculator .buttons[data-function="ac"] {
+  background-color: #992600;
+}
+#calculator .buttons[data-function="ac"].pressed {
+  background-color: #FF531A;
 }
