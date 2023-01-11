@@ -146,16 +146,16 @@ table {
   max-width: 50%;
 }
 .col_4 {
-  flex-basis: 33.33%;
-  max-width: 33.33%;
+  flex-basis: calc(100% / 3);
+  max-width: calc(100% / 3);
 }
 .col_3 {
   flex-basis: 25%;
   max-width: 25%;
 }
 .col_2 {
-  flex-basis: 16.67%;
-  max-width: 16.67%;
+  flex-basis: calc(100% / 6);
+  max-width: calc(100% / 6);
 }
 .col_auto {
   flex-basis: 0;
@@ -172,16 +172,16 @@ table {
     max-width: 50%;
   }
   .col-xs_4 {
-    flex-basis: 33.33%;
-    max-width: 33.33%;
+    flex-basis: calc(100% / 3);
+    max-width: calc(100% / 3);
   }
   .col-xs_3 {
     flex-basis: 25%;
     max-width: 25%;
   }
   .col-xs_2 {
-    flex-basis: 16.67%;
-    max-width: 16.67%;
+    flex-basis: calc(100% / 6);
+    max-width: calc(100% / 6);
   }
 }
 /* Width >= 576px */
@@ -195,16 +195,16 @@ table {
     max-width: 50%;
   }
   .col-sm_4 {
-    flex-basis: 33.33%;
-    max-width: 33.33%;
+    flex-basis: calc(100% / 3);
+    max-width: calc(100% / 3);
   }
   .col-sm_3 {
     flex-basis: 25%;
     max-width: 25%;
   }
   .col-sm_2 {
-    flex-basis: 16.67%;
-    max-width: 16.67%;
+    flex-basis: calc(100% / 6);
+    max-width: calc(100% / 6);
   }
 }
 /* Width >= 768px */
@@ -218,16 +218,16 @@ table {
     max-width: 50%;
   }
   .col-md_4 {
-    flex-basis: 33.33%;
-    max-width: 33.33%;
+    flex-basis: calc(100% / 3);
+    max-width: calc(100% / 3);
   }
   .col-md_3 {
     flex-basis: 25%;
     max-width: 25%;
   }
   .col-md_2 {
-    flex-basis: 16.67%;
-    max-width: 16.67%;
+    flex-basis: calc(100% / 6);
+    max-width: calc(100% / 6);
   }
 }
 /* Width >= 1024px */
@@ -241,16 +241,16 @@ table {
     max-width: 50%;
   }
   .col-lg_4 {
-    flex-basis: 33.33%;
-    max-width: 33.33%;
+    flex-basis: calc(100% / 3);
+    max-width: calc(100% / 3);
   }
   .col-lg_3 {
     flex-basis: 25%;
     max-width: 25%;
   }
   .col-lg_2 {
-    flex-basis: 16.67%;
-    max-width: 16.67%;
+    flex-basis: calc(100% / 6);
+    max-width: calc(100% / 6);
   }
 }
 /* Width >= 1366px */
@@ -264,15 +264,15 @@ table {
     max-width: 50%;
   }
   .col-xl_4 {
-    flex-basis: 33.33%;
-    max-width: 33.33%;
+    flex-basis: calc(100% / 3);
+    max-width: calc(100% / 3);
   }
   .col-xl_3 {
     flex-basis: 25%;
     max-width: 25%;
   }
   .col-xl_2 {
-    flex-basis: 16.67%;
-    max-width: 16.67%;
+    flex-basis: calc(100% / 6);
+    max-width: calc(100% / 6);
   }
 }
