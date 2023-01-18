@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Memories - kchui.dev</title>
+    <!--meta-->
+    <meta name="author" content="kchui">
+    <meta name="description" content="Where records are kept, experiments are carried out, and also personal secrets are revealed">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!--base-->
+    <base href="https://kchui.dev/" target="_self">
+    <!--canonical-->
+    <link rel="canonical" href="https://kchui.dev/memories.html">
+    <!--favicon-->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!--css-->
+    <link rel="stylesheet" href="assets/styles/basis.css">
+    <link rel="stylesheet" href="assets/styles/header.css">
+    <link rel="stylesheet" href="assets/styles/footer.css">
+    <link rel="stylesheet" href="assets/styles/notification.css">
+    <link rel="stylesheet" href="assets/styles/memories.css">
+    <!--js-->
+    <script src="assets/scripts/memories.js" defer></script>
+    <script src="assets/scripts/notification.js" defer></script>
+    <script src="assets/scripts/menu.js" defer></script>
+    <script src="assets/scripts/footer.js" defer></script>
+  </head>
+  <body>
+    <!--notification-->
+    <div id="notification_container">
+      <div id="notification"></div>
+    </div>
+    <!--header-->
+    <div id="header_container">
+      <div id="header">
+        <a href="index.html" id="website_title">kchui.dev</a>
+        <nav id="navigation_menu">
+          <a href="about-me.html" class="navigation_menu_items">About Me</a>
+          <a href="side-projects.html" class="navigation_menu_items">Side Projects</a>
+        </nav>
+        <div id="toolbar">
+          <div id="menu_icon">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--content-->
+    <div id="content_container">
+      <h4>Memories</h4>
+      <div id="memories">
+        <div id="graph">
+          <p id="description">This graph shows any event that is recorded below or has been stored before.</p>
+          <table id="table_graph">
+            <thead>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <span id="year_earliest"></span>
+                  <span id="year_this"></span>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+        <div id="input">
+          <div class="row">
+            <div class="col-md_3 col_12">
+              <div class="input_containers">
+                <label for="input_event">Event * <input type="text" id="input_event" name="event" required></label>
+              </div>
+            </div>
+            <div class="col-md_3 col-sm_6 col_6">
+              <div class="input_containers">
+                <label for="input_from">From * <input type="date" id="input_from" name="from" value="2020-01-01" required></label>
+              </div>
+            </div>
+            <div class="col-md_3 col-sm_6 col_6">
+              <div class="input_containers">
+                <label for="input_to">To <input type="date" id="input_to" name="to" value="2023-01-01"></label>
+              </div>
+            </div>
+            <div class="col-md_3 col_12">
+              <div class="input_containers">
+                <button type="button" id="button_record" name="record">Record</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--footer-->
+    <div id="footer_container">
+      <p id="footer"></p>
+    </div>
+  </body>
+</html>
