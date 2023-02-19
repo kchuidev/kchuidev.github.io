@@ -32,7 +32,7 @@
 #calculator #display #number {
   font-size: 24px;
 }
-#calculator .button_containers {
+#calculator .container_button {
   margin: 8px;
 }
 #calculator .buttons {
