@@ -30,8 +30,7 @@ let index_colour = 0;
 function initiate() {
   event_recorded = {};
   if ( events_stored != null && events_stored_loaded == false ) {
-    description.classList.add("hidden");
-    details.classList.remove("hidden");
+    // description.classList.add("hidden");
     events_recorded = events_stored;
     events_recorded.forEach((e)=>{
       titles_stored.push(e.event);
@@ -41,8 +40,7 @@ function initiate() {
     events_stored_loaded = true;
     drawGraph();
   } else {
-    description.classList.remove("hidden");
-    details.classList.add("hidden");
+    // description.classList.remove("hidden");
     updateYearLabel();
     events_recorded = [];
   }
