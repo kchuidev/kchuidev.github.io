@@ -30,7 +30,8 @@ let index_colour = 0;
 function initiate() {
   event_recorded = {};
   if ( events_stored != null && events_stored_loaded == false ) {
-    // description.classList.add("hidden");
+    description.classList.add("hidden");
+    details.classList.remove("hidden");
     events_recorded = events_stored;
     events_recorded.forEach((e)=>{
       titles_stored.push(e.event);
@@ -76,8 +77,8 @@ function updateYearLabel(event_from = null) {
     }
     document.getElementById("year_earliest").innerHTML = date_earliest.getFullYear();
     document.getElementById("year_this").innerHTML = time.getFullYear();
-    return;
   }
+  return;
 }
 
 function validateInput() {

@@ -23,6 +23,9 @@
   margin: 4px 0;
   color: #333333;
 }
+#display_from, #display_to {
+  white-space: nowrap;
+}
 #table_graph {
   width: 100%;
   /* min-width: 375px; */
