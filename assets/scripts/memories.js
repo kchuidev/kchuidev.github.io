@@ -30,8 +30,6 @@ let index_colour = 0;
 function initiate() {
   event_recorded = {};
   if ( events_stored != null && events_stored_loaded == false ) {
-    description.classList.add("hidden");
-    details.classList.remove("hidden");
     events_recorded = events_stored;
     events_recorded.forEach((e)=>{
       titles_stored.push(e.event);
@@ -41,7 +39,6 @@ function initiate() {
     events_stored_loaded = true;
     drawGraph();
   } else {
-    // description.classList.remove("hidden");
     updateYearLabel();
     events_recorded = [];
   }
@@ -180,7 +177,7 @@ function displayEvent(object_event) {
   title_added.dataset.event = object_event.event;
   title_added.innerHTML = object_event.event;
   cell_title_added.appendChild(title_added);
-  // add cell for bar and tooltip
+  // add cell for bar
   let cell_bar_added = row_added.insertCell(-1);
   cell_bar_added.classList.add("container_bar");
 
@@ -205,11 +202,6 @@ function displayEvent(object_event) {
   bar_after_added.dataset.event = object_event.event;
   cell_bar_added.appendChild(bar_after_added);
 
-  // let tooltip_added = document.createElement("span");
-  // tooltip_added.classList.add("tooltips");
-  // tooltip_added.dataset.event = object_event.event;
-  // tooltip_added.innerHTML = "<span class='labels'>Event: </span><span class='values'>" + object_event.event + "</span><br><span class='labels'>From: </span><span class='values'>" + object_event.from + "</span><br><span class='labels'>To: </span><span class='values'>" + time_to + "</span><br><span class='labels'>Day: </span><span class='values'>" + calculateDay(object_event.from, object_event.to) + "</span>";
-  // bar_added.appendChild(tooltip_added);
   return;
 }
 
