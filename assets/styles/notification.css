@@ -2,7 +2,7 @@
   kchui.dev
   notification.css
 */
-#notification_container {
+#container_notification {
   background-color: #000000;
   position: static;
   font-size: 0.9rem;

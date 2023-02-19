@@ -108,7 +108,7 @@ a {
 img {
   width: 100%;
 }
-.table_container {
+.container_table {
   overflow-x: auto;
 }
 table {
@@ -116,7 +116,7 @@ table {
   border-collapse: collapse;
 }
 
-#content_container {
+#container_content {
   max-width: var(--width-content);
   margin: auto;
   margin-top: 1rem;
@@ -124,7 +124,7 @@ table {
   min-height: 2000px;
 }
 @media(max-width:1048px) {
-  #content_container {
+  #container_content {
     margin-left: 12px;
     margin-right: 12px;
   }

@@ -2,7 +2,7 @@
   kchui.dev
   footer.css
 */
-#footer_container {
+#container_footer {
   background-color: var(--colour-background-header);
   position: static;
   bottom: 0;
