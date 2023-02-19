@@ -48,19 +48,19 @@ function initiate() {
   return;
 }
 
-function resetInput() {
-  event_recorded = {};
-  input_event.value = null;
-  input_from.value = "2020-01-01";
-  input_to.value = "2023-01-01";
-  return;
-}
-
 function resetGraph() {
   titles_stored = [];
   date_earliest = time;
   index_colour = 0;
   table_graph.getElementsByTagName("tbody")[0].innerHTML = "";
+  return;
+}
+
+function resetInput() {
+  event_recorded = {};
+  input_event.value = null;
+  input_from.value = "2020-01-01";
+  input_to.value = "2023-01-01";
   return;
 }
 
@@ -87,7 +87,7 @@ function validateInput() {
   let date_event_to_input = new Date(input_to.value);
   switch (true) {
     case ( input_event.value == null || input_event.value == "" ):
-      alert("Please provide the title for the event.");
+      alert("Please provide a title for the event.");
       input_event.focus();
       document.querySelector("label[for='" + input_event.id + "']").classList.add("error");
       return false;
@@ -143,6 +143,7 @@ function recordEvent() {
     displayEvent(event_recorded);
     events_recorded.push(event_recorded);
     localStorage.setItem("memories_events_recorded", JSON.stringify(events_recorded));
+    clearDetails();
     drawGraph();
     resetInput();
   }
@@ -230,6 +231,14 @@ function drawGraph() {
   return;
 }
 
+function clearDetails() {
+  display_event.innerHTML =  "-";
+  display_from.innerHTML =  "-";
+  display_to.innerHTML =  "-";
+  display_day.innerHTML =  "-";
+  return;
+}
+
 function displayDetails(event) {
   let event_targeted = event.target || event.srcElement;
   display_event.innerHTML =  event_targeted.dataset.event;
@@ -244,6 +253,7 @@ function removeEvent(event) {
   let title_event_targeted = removal_sign_targeted.dataset.event;
   events_recorded.splice( events_recorded.findIndex((e) => e.event === title_event_targeted), 1 );
   localStorage.setItem("memories_events_recorded", JSON.stringify(events_recorded));
+  clearDetails();
   resetGraph();
   if ( events_recorded.length > 0 ) {
     description.classList.add("hidden");
