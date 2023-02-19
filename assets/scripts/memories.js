@@ -29,7 +29,9 @@ let index_colour = 0;
 
 function initiate() {
   event_recorded = {};
-  if ( events_stored != null && events_stored_loaded == false ) {
+  if ( events_stored.length > 0 && events_stored_loaded == false ) {
+    description.classList.add("hidden");
+    details.classList.remove("hidden");
     events_recorded = events_stored;
     events_recorded.forEach((e)=>{
       titles_stored.push(e.event);
