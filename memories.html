@@ -28,11 +28,11 @@
   </head>
   <body>
     <!--notification-->
-    <div id="notification_container">
+    <div id="container_notification">
       <div id="notification"></div>
     </div>
     <!--header-->
-    <div id="header_container">
+    <div id="container_header">
       <div id="header">
         <a href="index.html" id="website_title">kchui.dev</a>
         <nav id="navigation_menu">
@@ -48,11 +48,36 @@
       </div>
     </div>
     <!--content-->
-    <div id="content_container">
+    <div id="container_content">
       <h4>Memories</h4>
       <div id="memories">
         <div id="graph">
           <p id="description">This graph shows any event that is recorded below or has been stored before.</p>
+          <div id="details" class="hidden">
+            <div class="row">
+              <div class="col-md_3 col_12">
+                <div class="container_event_details">
+                  <p><span class="labels">Event:</span> <span class="values" id="display_event"></span></p>
+                </div>
+              </div>
+              <div class="col-md_3 col-sm_4 col_4">
+                <div class="container_event_details">
+                  <p><span class="labels">From:</span> <span class="values" id="display_from"></span></p>
+                </div>
+              </div>
+              <div class="col-md_3 col-sm_4 col_4">
+                <div class="container_event_details">
+                  <p><span class="labels">To:</span> <span class="values" id="display_to"></span></p>
+                </div>
+              </div>
+              <div class="col-md_3 col-sm_4 col_4">
+                <div class="container_event_details">
+                  <p><span class="labels">Day:</span> <span class="values" id="display_day"></span></p>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
           <table id="table_graph">
             <thead>
               <tr>
@@ -71,22 +96,22 @@
         <div id="input">
           <div class="row">
             <div class="col-md_3 col_12">
-              <div class="input_containers">
+              <div class="container_input">
                 <label for="input_event">Event * <input type="text" id="input_event" name="event" required></label>
               </div>
             </div>
             <div class="col-md_3 col-sm_6 col_6">
-              <div class="input_containers">
+              <div class="container_input">
                 <label for="input_from">From * <input type="date" id="input_from" name="from" value="2020-01-01" required></label>
               </div>
             </div>
             <div class="col-md_3 col-sm_6 col_6">
-              <div class="input_containers">
+              <div class="container_input">
                 <label for="input_to">To <input type="date" id="input_to" name="to" value="2023-01-01"></label>
               </div>
             </div>
             <div class="col-md_3 col_12">
-              <div class="button_containers">
+              <div id="container_record_button">
                 <button type="button" id="button_record" name="record">Record</button>
               </div>
             </div>
@@ -95,7 +120,7 @@
       </div>
     </div>
     <!--footer-->
-    <div id="footer_container">
+    <div id="container_footer">
       <p id="footer"></p>
     </div>
   </body>

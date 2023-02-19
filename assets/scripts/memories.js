@@ -12,6 +12,11 @@ let titles_stored = [];
 let events_stored_loaded = false;
 let graph = document.getElementById("graph");
 let description = document.getElementById("description");
+let details = document.getElementById("details");
+let display_event = document.getElementById("display_event");
+let display_from = document.getElementById("display_from");
+let display_to = document.getElementById("display_to");
+let display_day = document.getElementById("display_day");
 let table_graph = document.getElementById("table_graph");
 let body_table_graph = table_graph.getElementsByTagName("tbody")[0];
 let removal_signs = document.querySelectorAll(".removal_signs");
@@ -26,6 +31,7 @@ function initiate() {
   event_recorded = {};
   if ( events_stored != null && events_stored_loaded == false ) {
     description.classList.add("hidden");
+    details.classList.remove("hidden");
     events_recorded = events_stored;
     events_recorded.forEach((e)=>{
       titles_stored.push(e.event);
@@ -36,6 +42,7 @@ function initiate() {
     drawGraph();
   } else {
     description.classList.remove("hidden");
+    details.classList.add("hidden");
     updateYearLabel();
     events_recorded = [];
   }
@@ -129,6 +136,7 @@ function validateInput() {
 function recordEvent() {
   if ( validateInput() == true ) {
     description.classList.add("hidden");
+    details.classList.remove("hidden");
     event_recorded = {};
     event_recorded.event = input_event.value;
     event_recorded.from = input_from.value;
@@ -157,7 +165,7 @@ function displayEvent(object_event) {
   row_added.dataset.event = object_event.event;
   // add cell for removal sign
   let cell_removal_sign_added = row_added.insertCell(-1);
-  cell_removal_sign_added.classList.add("removal_sign_container");
+  cell_removal_sign_added.classList.add("container_removal_sign");
   let removal_sign_added = document.createElement("span");
   removal_sign_added.classList.add("removal_signs");
   removal_sign_added.dataset.event = object_event.event;
@@ -166,7 +174,7 @@ function displayEvent(object_event) {
   removal_sign_added.addEventListener("click", removeEvent, false);
   // add cell for title
   let cell_title_added = row_added.insertCell(-1);
-  cell_title_added.classList.add("title_container");
+  cell_title_added.classList.add("container_title");
   let title_added = document.createElement("span");
   title_added.classList.add("titles");
   title_added.dataset.event = object_event.event;
@@ -174,7 +182,7 @@ function displayEvent(object_event) {
   cell_title_added.appendChild(title_added);
   // add cell for bar and tooltip
   let cell_bar_added = row_added.insertCell(-1);
-  cell_bar_added.classList.add("bar_container");
+  cell_bar_added.classList.add("container_bar");
 
   let bar_before_added = document.createElement("span");
   bar_before_added.classList.add("bars_before");
@@ -189,17 +197,19 @@ function displayEvent(object_event) {
   let time_to = object_event.to == null || object_event.to == "" ? "the present" : object_event.to;
   bar_added.dataset.to = time_to;
   cell_bar_added.appendChild(bar_added);
+  bar_added.addEventListener("mouseover", displayDetails, false);
+  bar_added.addEventListener("click", displayDetails, false);
 
   let bar_after_added = document.createElement("span");
   bar_after_added.classList.add("bars_after");
   bar_after_added.dataset.event = object_event.event;
   cell_bar_added.appendChild(bar_after_added);
 
-  let tooltip_added = document.createElement("span");
-  tooltip_added.classList.add("tooltips");
-  tooltip_added.dataset.event = object_event.event;
-  tooltip_added.innerHTML = "<span class='labels'>Event: </span><span class='values'>" + object_event.event + "</span><br><span class='labels'>From: </span><span class='values'>" + object_event.from + "</span><br><span class='labels'>To: </span><span class='values'>" + time_to + "</span><br><span class='labels'>Day: </span><span class='values'>" + calculateDay(object_event.from, object_event.to) + "</span>";
-  bar_added.appendChild(tooltip_added);
+  // let tooltip_added = document.createElement("span");
+  // tooltip_added.classList.add("tooltips");
+  // tooltip_added.dataset.event = object_event.event;
+  // tooltip_added.innerHTML = "<span class='labels'>Event: </span><span class='values'>" + object_event.event + "</span><br><span class='labels'>From: </span><span class='values'>" + object_event.from + "</span><br><span class='labels'>To: </span><span class='values'>" + time_to + "</span><br><span class='labels'>Day: </span><span class='values'>" + calculateDay(object_event.from, object_event.to) + "</span>";
+  // bar_added.appendChild(tooltip_added);
   return;
 }
 
@@ -222,14 +232,24 @@ function drawGraph() {
   return;
 }
 
+function displayDetails(event) {
+  let event_targeted = event.target || event.srcElement;
+  display_event.innerHTML =  event_targeted.dataset.event;
+  display_from.innerHTML =  event_targeted.dataset.from;
+  display_to.innerHTML =  event_targeted.dataset.to;
+  display_day.innerHTML =  event_targeted.dataset.day;
+  return;
+}
+
 function removeEvent(event) {
-  let removal_sign_clicked = event.target || event.srcElement;
-  let title_event_targeted = removal_sign_clicked.dataset.event;
+  let removal_sign_targeted = event.target || event.srcElement;
+  let title_event_targeted = removal_sign_targeted.dataset.event;
   events_recorded.splice( events_recorded.findIndex((e) => e.event === title_event_targeted), 1 );
   localStorage.setItem("memories_events_recorded", JSON.stringify(events_recorded));
   resetGraph();
   if ( events_recorded.length > 0 ) {
     description.classList.add("hidden");
+    details.classList.remove("hidden");
     events_recorded.forEach((e)=>{
       titles_stored.push(e.event);
       updateYearLabel(e.from);
@@ -238,6 +258,7 @@ function removeEvent(event) {
     drawGraph();
   } else {
     description.classList.remove("hidden");
+    details.classList.add("hidden");
     updateYearLabel();
     event_recorded = {};
     events_recorded = [];

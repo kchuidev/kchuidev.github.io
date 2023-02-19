@@ -16,8 +16,12 @@
   text-align: center;
   color: #333333;
 }
-#description.hidden {
+#description.hidden, #details.hidden {
   display: none;
+}
+.container_event_details p {
+  margin: 4px 0;
+  color: #333333;
 }
 #table_graph {
   width: 100%;
@@ -31,10 +35,10 @@
 #year_this {
   float: right;
 }
-.removal_sign_container {
+.container_removal_sign {
   width: 2%;
 }
-.title_container {
+.container_title {
   width: 13%;
 }
 .removal_signs {
@@ -42,12 +46,15 @@
   cursor: pointer;
   float: left;
 }
-.title_container .titles {
+.container_title .titles {
   float: right;
   direction: rtl;
   margin-right: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.bar_container {
+.container_bar {
   position: relative;
   padding: 16px 0;
   /* min-width: 800px; */
@@ -99,7 +106,7 @@
 }
 
 /* input */
-.input_containers {
+.container_input {
   position: relative;
   margin: 4px;
   user-select: none;
@@ -134,7 +141,7 @@ label.error:focus-within {
 label.error > input {
   border-color: #FF6633 !important;
 }
-.button_containers {
+#container_record_button {
   position: relative;
   height: 100%;
   max-height: 43px;
