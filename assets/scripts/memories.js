@@ -17,7 +17,7 @@ let display_event = document.getElementById("display_event");
 let display_from = document.getElementById("display_from");
 let display_to = document.getElementById("display_to");
 let display_day = document.getElementById("display_day");
-let table_graph = document.getElementById("table_graph");
+let table_graph = document.getElementById("graph_table");
 let body_table_graph = table_graph.getElementsByTagName("tbody")[0];
 let removal_signs = document.querySelectorAll(".removal_signs");
 let input_event = document.getElementById("input_event");
@@ -164,7 +164,7 @@ function displayEvent(object_event) {
   row_added.dataset.event = object_event.event;
   // add cell for removal sign
   let cell_removal_sign_added = row_added.insertCell(-1);
-  cell_removal_sign_added.classList.add("container_removal_sign");
+  cell_removal_sign_added.classList.add("removal_sign_containers");
   let removal_sign_added = document.createElement("span");
   removal_sign_added.classList.add("removal_signs");
   removal_sign_added.dataset.event = object_event.event;
@@ -173,7 +173,7 @@ function displayEvent(object_event) {
   removal_sign_added.addEventListener("click", removeEvent, false);
   // add cell for title
   let cell_title_added = row_added.insertCell(-1);
-  cell_title_added.classList.add("container_title");
+  cell_title_added.classList.add("title_containers");
   let title_added = document.createElement("span");
   title_added.classList.add("titles");
   title_added.dataset.event = object_event.event;
@@ -181,7 +181,7 @@ function displayEvent(object_event) {
   cell_title_added.appendChild(title_added);
   // add cell for bar
   let cell_bar_added = row_added.insertCell(-1);
-  cell_bar_added.classList.add("container_bar");
+  cell_bar_added.classList.add("bar_containers");
 
   let bar_before_added = document.createElement("span");
   bar_before_added.classList.add("bars_before");

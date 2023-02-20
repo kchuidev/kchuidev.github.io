@@ -28,11 +28,11 @@
   </head>
   <body>
     <!--notification-->
-    <div id="container_notification">
+    <div id="notification_container">
       <div id="notification"></div>
     </div>
     <!--header-->
-    <div id="container_header">
+    <div id="header_container">
       <div id="header">
         <a href="index.html" id="website_title">kchui.dev</a>
         <nav id="navigation_menu">
@@ -48,37 +48,37 @@
       </div>
     </div>
     <!--content-->
-    <div id="container_content">
+    <div id="content_container">
       <h4>Memories</h4>
       <div id="memories">
         <div id="graph">
           <p id="description">This graph shows any event that is recorded below or has been stored before.</p>
           <div id="details" class="hidden">
-            <div class="row">
+            <div class="rows">
               <div class="col-md_3 col_6">
-                <div class="container_event_details">
-                  <p><span class="label">Event:</span> <span class="value" id="display_event"></span></p>
+                <div>
+                  <p class="event_details"><span class="labels">Event:</span> <span class="values" id="display_event"></span></p>
                 </div>
               </div>
               <div class="col-md_3 col_6">
-                <div class="container_event_details">
-                  <p><span class="label">Day:</span> <span class="value" id="display_day"></span></p>
+                <div>
+                  <p class="event_details"><span class="labels">Day:</span> <span class="values" id="display_day"></span></p>
                 </div>
               </div>
               <div class="col-md_3 col_6">
-                <div class="container_event_details">
-                  <p><span class="label">From:</span> <span class="value" id="display_from"></span></p>
+                <div>
+                  <p class="event_details"><span class="labels">From:</span> <span class="values" id="display_from"></span></p>
                 </div>
               </div>
               <div class="col-md_3 col_6">
-                <div class="container_event_details">
-                  <p><span class="label">To:</span> <span class="value" id="display_to"></span></p>
+                <div>
+                  <p class="event_details"><span class="labels">To:</span> <span class="values" id="display_to"></span></p>
                 </div>
               </div>
             </div>
             <hr>
           </div>
-          <table id="table_graph">
+          <table id="graph_table">
             <thead>
               <tr>
                 <td></td>
@@ -94,24 +94,24 @@
           </table>
         </div>
         <div id="input">
-          <div class="row">
+          <div class="rows">
             <div class="col-md_3 col_12">
-              <div class="container_input">
+              <div class="input_containers">
                 <label for="input_event">Event * <input type="text" id="input_event" name="event" required></label>
               </div>
             </div>
             <div class="col-md_3 col-sm_6 col_6">
-              <div class="container_input">
+              <div class="input_containers">
                 <label for="input_from">From * <input type="date" id="input_from" name="from" value="2020-01-01" required></label>
               </div>
             </div>
             <div class="col-md_3 col-sm_6 col_6">
-              <div class="container_input">
+              <div class="input_containers">
                 <label for="input_to">To <input type="date" id="input_to" name="to" value="2023-01-01"></label>
               </div>
             </div>
             <div class="col-md_3 col_12">
-              <div id="container_record_button">
+              <div id="record_button_container">
                 <button type="button" id="button_record" name="record">Record</button>
               </div>
             </div>
@@ -120,7 +120,7 @@
       </div>
     </div>
     <!--footer-->
-    <div id="container_footer">
+    <div id="footer_container">
       <p id="footer"></p>
     </div>
   </body>
