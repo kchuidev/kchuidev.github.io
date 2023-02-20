@@ -11,6 +11,8 @@ let events_stored = JSON.parse(localStorage.getItem("memories_events_recorded"))
 let titles_stored = [];
 let events_stored_loaded = false;
 let graph = document.getElementById("graph");
+let year_earliest = document.getElementById("earliest_year");
+let year_this = document.getElementById("this_year");
 let description = document.getElementById("description");
 let details = document.getElementById("details");
 let display_event = document.getElementById("display_event");
@@ -67,15 +69,15 @@ function resetInput() {
 function updateYearLabel(event_from = null) {
   if ( event_from == null ) {
     date_earliest = time;
-    document.getElementById("year_earliest").innerHTML = null;
-    document.getElementById("year_this").innerHTML = null;
+    year_earliest.innerHTML = null;
+    year_this.innerHTML = null;
   } else {
     let date_event_from = new Date(event_from);
     if ( date_event_from < date_earliest ) {
       date_earliest = date_event_from;
     }
-    document.getElementById("year_earliest").innerHTML = date_earliest.getFullYear();
-    document.getElementById("year_this").innerHTML = time.getFullYear();
+    year_earliest.innerHTML = date_earliest.getFullYear();
+    year_this.innerHTML = time.getFullYear();
   }
   return;
 }
