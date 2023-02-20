@@ -124,7 +124,7 @@ table {
   min-height: 1600px;
 }
 @media(max-width:1048px) {
-  #container_content {
+  #content_container {
     margin-left: 12px;
     margin-right: 12px;
   }
