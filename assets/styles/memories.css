@@ -32,10 +32,10 @@
   color: #333333;
   border-collapse: collapse;
 }
-#year_earliest {
+#earliest_year {
   float: left;
 }
-#year_this {
+#this_year {
   float: right;
 }
 .removal_sign_containers {
