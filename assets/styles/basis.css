@@ -116,12 +116,12 @@ table {
   border-collapse: collapse;
 }
 
-#container_content {
+#content_container {
   max-width: var(--width-content);
   margin: auto;
   margin-top: 1rem;
   color: var(--colour-main);
-  min-height: 2000px;
+  min-height: 1600px;
 }
 @media(max-width:1048px) {
   #container_content {
