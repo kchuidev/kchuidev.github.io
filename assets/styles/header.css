@@ -2,7 +2,7 @@
   kchui.dev
   header.css
 */
-#container_header {
+#header_container {
   border-bottom: 1px solid var(--border-color-header);
   background-color: var(--colour-background-header);
   position: sticky;
