@@ -19,14 +19,14 @@ function shuffleSymbol() {
     const j = Math.floor(Math.random() * (i + 1));
     [symbols[i], symbols[j]] = [symbols[j], symbols[i]];
   }
-  return;
+  return new Promise((resolve)=>{setTimeout(resolve,100);});
 }
 
 function assignSymbol() {
   for (let i = 0; i < symbols.length; i++) {
     cards_back[i].innerHTML = symbols[i];
   }
-  return;
+  return new Promise((resolve)=>{setTimeout(resolve,100);});
 }
 
 function calculateTime() {
@@ -34,7 +34,7 @@ function calculateTime() {
   return;
 }
 
-function resetGame() {
+async function resetGame() {
   record_this = "";
   attempt = 0;
   cards_cleared = 0;
@@ -46,9 +46,31 @@ function resetGame() {
     e.classList.remove("cleared");
     e.classList.remove("deactivated");
   });
-  setTimeout(shuffleSymbol, 100);
-  setTimeout(assignSymbol, 200);
+  await shuffleSymbol();
+  await assignSymbol();
   time_passing = setInterval(calculateTime, 1000);
+  return;
+}
+
+function initiate() {
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].id = "card_" + (i + 1);
+    cards[i].addEventListener("click", ()=>{
+      if ( !cards[i].classList.contains("deactivated") ) {
+        cards[i].classList.add("chosen");
+        if ( card_chosen_a == undefined && card_chosen_b == undefined ) {
+          card_chosen_a = cards[i].id;
+        } else if ( card_chosen_a != undefined && card_chosen_b == undefined ) {
+          card_chosen_b = cards[i].id;
+          document.querySelectorAll(".cards").forEach((e)=>{
+            e.classList.add("deactivated");
+          });
+          setTimeout(verifyAnswer, 600, card_chosen_a, card_chosen_b);
+        }
+      }
+    }, false);
+  }
+  return;
 }
 
 function checkVictory() {
@@ -102,24 +124,9 @@ function verifyAnswer(a,b) {
       e.classList.remove("deactivated");
     }
   });
+  return;
 }
 
 resetGame();
 
-for (let i = 0; i < cards.length; i++) {
-  cards[i].id = "card_" + (i + 1);
-  cards[i].addEventListener("click", ()=>{
-    if ( !cards[i].classList.contains("deactivated") ) {
-      cards[i].classList.add("chosen");
-      if ( card_chosen_a == undefined && card_chosen_b == undefined ) {
-        card_chosen_a = cards[i].id;
-      } else if ( card_chosen_a != undefined && card_chosen_b == undefined ) {
-        card_chosen_b = cards[i].id;
-        document.querySelectorAll(".cards").forEach((e)=>{
-          e.classList.add("deactivated");
-        });
-        setTimeout(verifyAnswer, 600, card_chosen_a, card_chosen_b);
-      }
-    }
-  }, false);
-}
+initiate();
