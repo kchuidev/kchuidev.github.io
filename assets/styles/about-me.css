@@ -15,9 +15,6 @@
   vertical-align: top;
 }
 @media ( max-width: 576px ) {
-  #about-me_table tr td {
-    font-size: 1.1rem;
-  }
   #about-me_table .labels {
     width: 40%;
   }
