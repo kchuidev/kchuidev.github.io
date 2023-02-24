@@ -15,7 +15,8 @@ function initiate() {
     setTimeout(()=>{button_analyse.classList.remove("pressed");}, 200);
     analyseURL().then(
       (url_analysed)=>{
-        displayResult(url_analysed);return;
+        displayResult(url_analysed);
+        return;
       },
       (error)=>{
         label_input_url.classList.add("error");
@@ -46,7 +47,7 @@ function reset() {
   return;
 }
 
-function analyseURL() {
+async function analyseURL() {
   let url = new URL(input_url.value);
   let url_analysed = {};
 
