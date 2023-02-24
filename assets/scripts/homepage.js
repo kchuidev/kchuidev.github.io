@@ -12,12 +12,6 @@ function displayCurrentTime() {
   return;
 }
 
-function storeCurrentTime() {
-  let value_time = time.getTime();
-  localStorage.setItem("time_last_visit", value_time);
-  return;
-}
-
 // retrieve and store the last visit time
 function retrieveLastVisitTime() {
   let time_last_visit;
@@ -51,13 +45,20 @@ function displayLastVisitTime(time_last_visit) {
   return;
 }
 
-window.addEventListener("load", ()=>{
-  setInterval(displayCurrentTime, 1000);
-  storeCurrentTime();
-  retrieveLastVisitTime().then(
-    (time_last_visit)=>{
-      displayLastVisitTime(time_last_visit);
-    }
-  );
-  displayLastVisitTime();
-}, false);
+function storeCurrentTime() {
+  let value_time = time.getTime();
+  localStorage.setItem("time_last_visit", value_time);
+  return;
+}
+
+setInterval(displayCurrentTime, 1000);
+
+retrieveLastVisitTime().then(
+  (time_last_visit)=>{
+    displayLastVisitTime(time_last_visit);
+  }
+).then(
+  ()=>{
+    storeCurrentTime();
+  }
+);
