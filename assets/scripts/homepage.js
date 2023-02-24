@@ -3,10 +3,9 @@
   homepage.js
 */
 
-const time = new Date();
-
 // display the current time
 function displayCurrentTime() {
+  const time = new Date();
   let time_current_display = document.getElementById("time_current_display");
   time_current_display.innerHTML = time.toDateString() + "&nbsp;" + time.toLocaleTimeString('en-GB', { hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" });
   return;
@@ -46,19 +45,21 @@ function displayLastVisitTime(time_last_visit) {
 }
 
 function storeCurrentTime() {
+  const time = new Date();
   let value_time = time.getTime();
   localStorage.setItem("time_last_visit", value_time);
   return;
 }
 
-setInterval(displayCurrentTime, 1000);
-
-retrieveLastVisitTime().then(
-  (time_last_visit)=>{
-    displayLastVisitTime(time_last_visit);
-  }
-).then(
-  ()=>{
-    storeCurrentTime();
-  }
-);
+window.addEventListener("load", ()=>{
+  setInterval(displayCurrentTime, 1000);
+  retrieveLastVisitTime().then(
+    (time_last_visit)=>{
+      displayLastVisitTime(time_last_visit);
+    }
+  ).then(
+    ()=>{
+      storeCurrentTime();
+    }
+  );
+}, false);
