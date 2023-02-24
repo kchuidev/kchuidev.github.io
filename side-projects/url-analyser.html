@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>URL Analyser - kchui.dev</title>
+    <!--meta-->
+    <meta name="author" content="kchui">
+    <meta name="description" content="Where records are kept, experiments are carried out, and also personal secrets are revealed">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!--base-->
+    <base href="https://kchui.dev/" target="_self">
+    <!--canonical-->
+    <link rel="canonical" href="https://kchui.dev/side-projects/url-analyser.html">
+    <!--favicon-->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!--css-->
+    <link rel="stylesheet" href="assets/styles/basis.css">
+    <link rel="stylesheet" href="assets/styles/header.css">
+    <link rel="stylesheet" href="assets/styles/footer.css">
+    <link rel="stylesheet" href="assets/styles/notification.css">
+    <link rel="stylesheet" href="assets/styles/url-analyser.css">
+    <!--js-->
+    <script src="assets/scripts/url-analyser.js" defer></script>
+    <script src="assets/scripts/notification.js" defer></script>
+    <script src="assets/scripts/menu.js" defer></script>
+    <script src="assets/scripts/footer.js" defer></script>
+  </head>
+  <body>
+    <!--notification-->
+    <div id="notification_container">
+      <div id="notification"></div>
+    </div>
+    <!--header-->
+    <div id="header_container">
+      <div id="header">
+        <a href="index.html" id="website_title">kchui.dev</a>
+        <nav id="navigation_menu">
+          <a href="about-me.html" class="navigation_menu_items">About Me</a>
+          <a href="side-projects.html" class="navigation_menu_items">Side Projects</a>
+        </nav>
+        <div id="toolbar">
+          <div id="menu_icon">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--content-->
+    <div id="content_container">
+      <h3>URL Analyser</h3>
+      <div id="redirection-checker">
+        <div id="input">
+          <div class="rows">
+            <div class="col-sm_10 col_12">
+              <div id="input_container">
+                <label for="input_url">URL * <input type="url" id="input_url" name="url" required></label>
+              </div>
+            </div>
+            <div class="col_auto">
+              <div id="button_container">
+                <button type="button" id="button_analyse" name="analyse">Analyse</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="result" class="hidden">
+          <h4 id="result_heading">Result</h4>
+          <table id="result_table">
+            <colgroup>
+              <col width="20%" class="labels">
+              <col width="80%" class="values">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td colspan="2">
+                  <div id="analysed_url_container">
+                    <span id="analysed_url"></span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--footer-->
+    <div id="footer_container">
+      <p id="footer"></p>
+    </div>
+  </body>
+</html>

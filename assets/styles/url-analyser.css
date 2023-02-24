@@ -1,0 +1,252 @@
+/*
+  kchui.dev
+  url-analyser.css
+*/
+
+@media ( min-width: 576px ) {
+  .col-sm_10 {
+    flex-basis: calc(100% / 1.2);
+    max-width: calc(100% / 1.2);
+  }
+}
+#input_container {
+  position: relative;
+  margin: 4px;
+  user-select: none;
+}
+label[for="input_url"] {
+  font-size: 14px;
+  color: #B3B3B3;
+}
+label[for="input_url"]:focus-within {
+  color: #FFFFFF;
+}
+#input_url {
+  width: 100%;
+  height: 100%;
+  max-height: 36.5px;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: transparent;
+  border: 1px solid #B3B3B3;
+  color: #FFFFFF;
+  padding: 0.5rem;
+  font-family: var(--font-family-regular);
+}
+#input_url:focus-visible {
+  outline: none;
+  border: 1px solid #FFFFFF;
+}
+label[for="input_url"].error:focus-within {
+  color: #FF6633 !important;
+}
+label[for="input_url"].error > input {
+  border-color: #FF6633 !important;
+}
+#button_container {
+  position: relative;
+  height: 100%;
+  margin: 4px;
+  user-select: none;
+}
+button[name="analyse"] {
+  width: 100%;
+  height: 100%;
+  max-height: 36.5px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 18px;
+  background-color: #0059B3;
+  color: #FFFFFF;
+}
+button[name="analyse"].pressed {
+  background-color: #3399FF;
+}
+@media ( max-width: 575px ) {
+  button[name="analyse"] {
+    margin-top: 4px;
+  }
+}
+
+/* Result */
+#result {
+  margin: 1rem 0;
+  overflow: auto;
+}
+#result.hidden {
+  display: none;
+}
+#result_heading {
+  margin-bottom: 0.4rem;
+}
+#result_table tr td {
+  padding: 4px;
+  vertical-align: top;
+  border: 1px solid var(--border-colour-table);
+}
+#analysed_url_container {
+  background-color: #14191F;
+  text-align: center;
+  padding: 2rem !important;
+  overflow-x: auto;
+}
+#analysed_url {
+  white-space: nowrap;
+  user-select: none;
+}
+#analysed_url span {
+  position: relative;
+  padding: 0.1rem;
+  border-width: 2px;
+  border-style: dashed;
+}
+#analysed_url span:hover {
+  border-style: solid;
+}
+#display_url_scheme {
+  border-color: #990000;
+}
+#display_url_scheme::before {
+  content: "scheme";
+  background-color: #990000;
+  display: none;
+  position: absolute;
+  top: -22px;
+  left: -2px;
+  padding: 4px;
+  font-size: 12px;
+  color: #FFFFFF;
+  z-index: 2;
+}
+#display_url_scheme:hover::before {
+  display: initial;
+}
+#display_url_username {
+  border-color: #007399;
+}
+#display_url_username::before {
+  content: "username";
+  background-color: #007399;
+  display: none;
+  position: absolute;
+  top: -22px;
+  left: -2px;
+  padding: 4px;
+  font-size: 12px;
+  color: #FFFFFF;
+  z-index: 2;
+}
+#display_url_username:hover::before {
+  display: initial;
+}
+#display_url_password {
+  border-color: #009973;
+}
+#display_url_password::before {
+  content: "password";
+  background-color: #009973;
+  display: none;
+  position: absolute;
+  top: -22px;
+  left: -2px;
+  padding: 4px;
+  font-size: 12px;
+  color: #FFFFFF;
+  z-index: 2;
+}
+#display_url_password:hover::before {
+  display: initial;
+}
+#display_url_host {
+  border-color: #999900;
+}
+#display_url_host::before {
+  content: "host";
+  background-color: #999900;
+  display: none;
+  position: absolute;
+  top: -22px;
+  left: -2px;
+  padding: 4px;
+  font-size: 12px;
+  color: #FFFFFF;
+  z-index: 2;
+}
+#display_url_host:hover::before {
+  display: initial;
+}
+#display_url_port {
+  border-color: #008040;
+}
+#display_url_port::before {
+  content: "port";
+  background-color: #008040;
+  display: none;
+  position: absolute;
+  top: -22px;
+  left: -2px;
+  padding: 4px;
+  font-size: 12px;
+  color: #FFFFFF;
+  z-index: 2;
+}
+#display_url_port:hover::before {
+  display: initial;
+}
+#display_url_path {
+  border-color: #994D00;
+}
+#display_url_path::before {
+  content: "path";
+  background-color: #994D00;
+  display: none;
+  position: absolute;
+  top: -22px;
+  left: -2px;
+  padding: 4px;
+  font-size: 12px;
+  color: #FFFFFF;
+  z-index: 2;
+}
+#display_url_path:hover::before {
+  display: initial;
+}
+#display_url_query_string {
+  border-color: #800060;
+}
+#display_url_query_string::before {
+  content: "query string";
+  background-color: #800060;
+  display: none;
+  position: absolute;
+  top: -22px;
+  left: -2px;
+  padding: 4px;
+  font-size: 12px;
+  color: #FFFFFF;
+  z-index: 2;
+}
+#display_url_query_string:hover::before {
+  display: initial;
+}
+#display_url_fragment {
+  border-color: #595959;
+}
+#display_url_fragment::before {
+  content: "fragment";
+  background-color: #595959;
+  display: none;
+  position: absolute;
+  top: -22px;
+  left: -2px;
+  padding: 4px;
+  font-size: 12px;
+  color: #FFFFFF;
+  z-index: 2;
+}
+#display_url_fragment:hover::before {
+  display: initial;
+}
