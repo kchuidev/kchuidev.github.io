@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="assets/styles/notification.css">
     <link rel="stylesheet" href="assets/styles/homepage.css">
     <!--external js-->
-    <script src="assets/scripts/tracker.js"></script>
+    <script src="assets/scripts/homepage.js"></script>
     <script src="assets/scripts/notification.js" defer></script>
     <script src="assets/scripts/menu.js" defer></script>
     <script src="assets/scripts/footer.js" defer></script>
@@ -56,28 +56,5 @@
     <div id="footer_container">
       <p id="footer"></p>
     </div>
-
-    <!--internal js-->
-
-    <script>
-      function displayTime() {
-        const time = new Date();
-        const time_current_display = document.getElementById("time_current_display");
-        time_current_display.innerHTML = time.toDateString() + "&nbsp;" + time.toLocaleTimeString('en-GB', { hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" });
-        return;
-      }
-
-      setInterval(displayTime, 1000);
-    </script>
-
-    <script>
-      const time_last_visit_display = document.getElementById("time_last_visit_display");
-      if ( time_last_visit != "N/A" ) {
-        time_last_visit_milliseconds = new Date(Number(time_last_visit));
-        time_last_visit_display.innerHTML = time_last_visit_milliseconds.toDateString() + "&nbsp;" + time_last_visit_milliseconds.toLocaleTimeString('en-GB', { hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" });
-      } else {
-        time_last_visit_display.innerHTML = time_last_visit;
-      }
-    </script>
   </body>
 </html>
