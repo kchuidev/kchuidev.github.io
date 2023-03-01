@@ -12,19 +12,19 @@ function displayCurrentTime() {
 }
 
 // retrieve and store the last visit time
-function retrieveLastVisitTime() {
+async function retrieveLastVisitTime() {
   let time_last_visit;
 
   switch (true) {
-    case ( sessionStorage.getItem("time_last_visit") == null && localStorage.getItem("time_last_visit") == null ):
+    case ( ( sessionStorage.getItem("time_last_visit") == null || sessionStorage.getItem("time_last_visit") == "N/A" ) && localStorage.getItem("time_last_visit") == null ):
       time_last_visit = "N/A";
       sessionStorage.setItem("time_last_visit", time_last_visit);
       break;
-    case ( sessionStorage.getItem("time_last_visit") == null && localStorage.getItem("time_last_visit") != null ):
+    case ( ( sessionStorage.getItem("time_last_visit") == null || sessionStorage.getItem("time_last_visit") == "N/A" ) && localStorage.getItem("time_last_visit") != null ):
       sessionStorage.setItem("time_last_visit", localStorage.getItem("time_last_visit"));
       time_last_visit = sessionStorage.getItem("time_last_visit");
       break;
-    case ( sessionStorage.getItem("time_last_visit") != null ):
+    case ( sessionStorage.getItem("time_last_visit") != null && sessionStorage.getItem("time_last_visit") != "N/A" ):
       time_last_visit = sessionStorage.getItem("time_last_visit");
       break;
   }
@@ -44,11 +44,24 @@ function displayLastVisitTime(time_last_visit) {
   return;
 }
 
+// store Current Time
 function storeCurrentTime() {
   const time = new Date();
   let value_time = time.getTime();
   localStorage.setItem("time_last_visit", value_time);
   return;
+}
+
+// clear local storage data
+function clearLocalData() {
+  let text_confirmation = "Do you really want to clear the local data?\nOnce the data is cleared, it can never be recovered.";
+  if ( confirm(text_confirmation) == true ) {
+    localStorage.clear();
+    sessionStorage.clear();
+    alert("All the local data related to this project has been cleared.");
+    location.reload();
+    return;
+  }
 }
 
 window.addEventListener("load", ()=>{
@@ -62,4 +75,7 @@ window.addEventListener("load", ()=>{
       storeCurrentTime();
     }
   );
+
+  let button_clear_local_storage_data = document.getElementById("button_clear_data");
+  button_clear_local_storage_data.addEventListener("click", clearLocalData, false);
 }, false);
