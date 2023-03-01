@@ -96,14 +96,15 @@ p {
   margin: 0.4rem 0 0.4rem 0;
   line-height: 1.6rem;
 }
-.explanatory_notes::before {
+.notes::before {
   content: "Note";
+  display: block;
   font-size: 0.8rem;
   font-family: var(--font-family-bold);
-  padding: 0.05rem 0.2rem;
-  background-color: #FFFFFF;
-  color: rgba(0, 0, 0, 1);
-  margin-right: 0.4rem;
+}
+.notes {
+  background-color: #1E272F;
+  padding: 0.6rem 1rem 1rem 1rem;
 }
 .labels {
   font-family: var(--font-family-light);
@@ -116,7 +117,7 @@ a {
   size: var(--font-size);
   text-decoration: none;
   background-color: var(--colour-hyperlink-background);
-  padding: 0.1rem 0.4rem;
+  padding: 0.2rem 0.4rem;
   border-radius: 0.4rem;
 }
 a:hover {
