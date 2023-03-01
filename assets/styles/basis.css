@@ -43,8 +43,10 @@ body {
   --colour-background-header: #14191F;
   --colour-paragraph: #FFFFFF;
   --colour-hyperlink: #FFFFFF;
-  --border-color-header: #FFFFFF;
-  --border-colour-table: #FFFFFF;
+  --colour-hyperlink-background: #3C4D5D;
+  --colour-hyperlink-background-hover: #50667C;
+  --color-header-border: #FFFFFF;
+  --colour-table-border: #FFFFFF;
 }
 
 /* Basic Tags */
@@ -94,6 +96,15 @@ p {
   margin: 0.4rem 0 0.4rem 0;
   line-height: 1.6rem;
 }
+.explanatory_notes::before {
+  content: "Note";
+  font-size: 0.8rem;
+  font-family: var(--font-family-bold);
+  padding: 0.05rem 0.2rem;
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 1);
+  margin-right: 0.4rem;
+}
 .labels {
   font-family: var(--font-family-light);
 }
@@ -104,9 +115,40 @@ a {
   color: var(--colour-hyperlink);
   size: var(--font-size);
   text-decoration: none;
+  background-color: var(--colour-hyperlink-background);
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.4rem;
+}
+a:hover {
+  background-color: var(--colour-hyperlink-background-hover);
+}
+a.external_links::after {
+  content: "\2197";
+  font-size: 0.8rem;
 }
 img {
   width: 100%;
+}
+.button_containers {
+  position: relative;
+  height: 100%;
+  margin: 4px;
+  user-select: none;
+}
+button {
+  border: none;
+  font-size: 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  padding: 0.4rem 1rem;
+  background-color: #0059B3;
+  color: #FFFFFF;
+}
+button:hover {
+  background-color: #0073E6;
+}
+button.pressed {
+  background-color: #1A8CFF;
 }
 .table_containers {
   overflow-x: auto;

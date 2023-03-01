@@ -3,7 +3,7 @@
   header.css
 */
 #header_container {
-  border-bottom: 1px solid var(--border-color-header);
+  border-bottom: 1px solid var(--color-header-border);
   background-color: var(--colour-background-header);
   position: sticky;
   top: 0;
@@ -24,6 +24,7 @@
 #website_title {
   font-family: var(--font-family-light);
   font-size: 1.8rem;
+  text-decoration: none;
   color: #FFFFFF;
   grid-area: title;
   grid-column: 1 / 2;
@@ -31,6 +32,9 @@
   justify-self: start;
   align-self: center;
   z-index: 4;
+  background-color: initial !important;
+  padding: initial !important;
+  border-radius: initial !important;
 }
 #navigation_menu {
   grid-area: menu;
@@ -43,6 +47,10 @@
 .navigation_menu_items {
   color: #FFFFFF;
   margin: 10px;
+  text-decoration: none;
+  background-color: initial !important;
+  padding: initial !important;
+  border-radius: initial !important;
 }
 #toolbar {
   grid-area: toolbar;

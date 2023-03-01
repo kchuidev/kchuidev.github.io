@@ -6,9 +6,6 @@
 .side-projects_internal_links:hover .side-projects_icons {
   opacity: 1;
 }
-.side-projects_external_links {
-  text-decoration: underline;
-}
 .side-projects_icons {
   opacity: 0.6;
   max-width: 200px;

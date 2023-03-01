@@ -43,27 +43,12 @@ label[for="input_url"].error:focus-within {
 label[for="input_url"].error > input {
   border-color: #FF6633 !important;
 }
-#button_container {
-  position: relative;
-  height: 100%;
-  margin: 4px;
-  user-select: none;
-}
 button[name="analyse"] {
   width: 100%;
   height: 100%;
   max-height: 36.5px;
-  border: none;
-  font-size: 1rem;
-  border-radius: 10px;
-  cursor: pointer;
   padding: 10px;
-  margin-top: 18px;
-  background-color: #0059B3;
-  color: #FFFFFF;
-}
-button[name="analyse"].pressed {
-  background-color: #3399FF;
+  margin-top: 22px;
 }
 @media ( max-width: 575px ) {
   button[name="analyse"] {
@@ -85,7 +70,7 @@ button[name="analyse"].pressed {
 #result_table tr td {
   padding: 4px;
   vertical-align: top;
-  border: 1px solid var(--border-colour-table);
+  border: 1px solid var(--colour-table-border);
 }
 #analysed_url_container {
   background-color: #14191F;
