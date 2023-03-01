@@ -13,7 +13,7 @@ function initiate() {
   let drawing = playground.getContext("2d");
   drawing.fillStyle = "#FFFFFF";
   drawing.fillRect(0, 0, 5, 5);
-  console.log(playground.width + " " + playground.height);
+  console.log("width: " + playground.width + " & height:" + playground.height);
 }
 
 gyroscope.addEventListener("reading", (e) => {
