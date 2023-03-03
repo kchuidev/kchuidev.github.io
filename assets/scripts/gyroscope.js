@@ -23,20 +23,29 @@ function initiate() {
 }
 
 function startGame() {
-  reading_alpha.innerHTML = 0;
-  reading_beta.innerHTML = 0;
-  reading_gamma.innerHTML = 0;
-  DeviceOrientationEvent.requestPermission()
-    .then(response => {
-      if (response == 'granted') {
-        window.addEventListener('deviceorientation', (event) => {
+  // reading_alpha.innerHTML = 0;
+  // reading_beta.innerHTML = 0;
+  // reading_gamma.innerHTML = 0;
+  // DeviceOrientationEvent.requestPermission()
+  //   .then(response => {
+  //     if (response == 'granted') {
+  //       window.addEventListener('deviceorientation', (event) => {
+  //         reading_alpha.innerHTML = event.alpha;
+  //         reading_beta.innerHTML = event.beta;
+  //         reading_gamma.innerHTML = event.gamma;
+  //       });
+  //     }
+  //   })
+  //   .catch(alert(error));
+  DeviceMotionEvent.requestPermission().then(response => {
+    if (response == 'granted') {
+        window.addEventListener('deviceorientation',(event) => {
           reading_alpha.innerHTML = event.alpha;
           reading_beta.innerHTML = event.beta;
           reading_gamma.innerHTML = event.gamma;
         });
-      }
-    })
-    .catch(alert(error));
+    }
+  });
 }
 
 window.addEventListener("load", ()=>{
