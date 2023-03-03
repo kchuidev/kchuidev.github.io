@@ -26,18 +26,17 @@ function startGame() {
   reading_alpha.innerHTML = 0;
   reading_beta.innerHTML = 0;
   reading_gamma.innerHTML = 0;
-  DeviceMotionEvent.requestPermission()
+  DeviceOrientationEvent.requestPermission()
     .then(response => {
       if (response == 'granted') {
         window.addEventListener('deviceorientation', (event) => {
           reading_alpha.innerHTML = event.alpha;
           reading_beta.innerHTML = event.beta;
           reading_gamma.innerHTML = event.gamma;
-          return;
-        }, false);
+        });
       }
     })
-    .catch(console.error);
+    .catch(alert(error));
 }
 
 window.addEventListener("load", ()=>{
