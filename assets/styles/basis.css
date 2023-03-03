@@ -117,7 +117,7 @@ a {
   size: var(--font-size);
   text-decoration: none;
   background-color: var(--colour-hyperlink-background);
-  padding: 0.2rem 0.4rem;
+  padding: 0 0.4rem;
   border-radius: 0.4rem;
 }
 a:hover {
