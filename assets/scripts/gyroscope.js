@@ -4,7 +4,7 @@
 */
 
 let playground = document.getElementById("playground");
-let gyroscope = new Gyroscope({ frequency: 60 });
+//let gyroscope = new Gyroscope({ frequency: 60 });
 let button_start = document.getElementById("button_start");
 let reading_alpha = document.getElementById("reading_alpha");
 let reading_beta = document.getElementById("reading_beta");
