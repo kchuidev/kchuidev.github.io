@@ -33,19 +33,19 @@ function startGame() {
           velocity_y += event.beta * rate_update;
 
           position_x += (velocity_x * 0.5);
-          if ( position_x < 0 || position_x > playground.clientWidth ) {
-            position_x = Math.max(0, Math.min(playground.clientWidth, position_x));
+          if ( position_x < 0 || position_x > ( playground.offsetWidth - 16 ) ) {
+            position_x = Math.max(0, Math.min(( playground.offsetWidth - 16 ), position_x));
             velocity_x = 0;
           }
-          
+
           position_y += (velocity_y + 0.5);
-          if ( position_y < 0 || position_y > playground.clientHeight ) {
-            position_y = Math.max(0, Math.min(playground.clientHeight, position_y));
+          if ( position_y < 0 || position_y > ( playground.offsetHeight - 16 ) ) {
+            position_y = Math.max(0, Math.min(( playground.offsetHeight - 16 ), position_y));
             velocity_y = 0;
           }
           // dot.style.left = position_x + "px";
           // dot.style.top = position_y + "px";
-          dot.setAttribute('style', "left:" + (position_x) + "%;" + "top:" + (position_y) + "%;");
+          dot.setAttribute('style', "left:" + (position_x) + "px;" + "top:" + (position_y) + "px;");
         });
       }
     })
