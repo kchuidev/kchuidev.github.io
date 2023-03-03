@@ -14,6 +14,9 @@ let reading_beta = document.getElementById("reading_beta");
 let reading_gamma = document.getElementById("reading_gamma");
 
 function initiate() {
+  reading_alpha.innerHTML = 0;
+  reading_beta.innerHTML = 0;
+  reading_gamma.innerHTML = 0;
   let drawing = playground.getContext("2d");
   drawing.fillStyle = "#FFFFFF";
   drawing.fillRect(0, 0, 5, 5);
@@ -22,9 +25,6 @@ function initiate() {
 }
 
 function startGame() {
-  reading_alpha.innerHTML = 0;
-  reading_beta.innerHTML = 0;
-  reading_gamma.innerHTML = 0;
   DeviceMotionEvent.requestPermission()
     .then(response => {
       if (response == 'granted') {
