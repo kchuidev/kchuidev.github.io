@@ -23,23 +23,18 @@ function initiate() {
 }
 
 function startGame() {
-  // feature detect
-  if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-    DeviceOrientationEvent.requestPermission()
-      .then(permissionState => {
-        if (permissionState === 'granted') {
-          window.addEventListener('deviceorientation', (event) => {
-            reading_alpha.innerHTML = event.alpha;
-            reading_beta.innerHTML = event.beta;
-            reading_gamma.innerHTML = event.gamma;
-            return;
-          }, false);
-        }
-      })
-      .catch(console.error);
-  } else {
-    // handle regular non iOS 13+ devices
-  }
+  DeviceMotionEvent.requestPermission()
+    .then(response => {
+      if (response === 'granted') {
+        window.addEventListener('deviceorientation', (event) => {
+          reading_alpha.innerHTML = event.alpha;
+          reading_beta.innerHTML = event.beta;
+          reading_gamma.innerHTML = event.gamma;
+          return;
+        }, false);
+      }
+    })
+    .catch(console.error);
 }
 
 window.addEventListener("load", ()=>{
