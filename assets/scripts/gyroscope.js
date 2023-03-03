@@ -14,7 +14,7 @@ let position_x = 0;
 let position_y = 0;
 let velocity_x = 0.0;
 let velocity_y = 0.0;
-let rate_update = 1/6;
+let rate_update = 1/60;
 
 function initiate() {
   dot.style.transform = "translate(" + (playground.offsetWidth / 2) + "px, " + (playground.offsetHeight / 2) + "px";
