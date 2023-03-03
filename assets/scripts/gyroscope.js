@@ -18,8 +18,6 @@ function initiate() {
   drawing.fillStyle = "#FFFFFF";
   drawing.fillRect(0, 0, 5, 5);
   console.log("width: " + playground.width + " & height:" + playground.height);
-
-  button_start.addEventListener("click", startGame, false);
 }
 
 function startGame() {
