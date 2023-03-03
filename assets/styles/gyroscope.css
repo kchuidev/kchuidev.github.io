@@ -3,6 +3,18 @@
   gyroscope.css
 */
 
+#playground_container {
+  position: relative;
+}
+#button_start_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
 #playground {
   width: 100%;
   height: 100%;
