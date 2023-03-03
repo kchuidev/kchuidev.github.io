@@ -17,7 +17,6 @@ let velocity_y = 0.0;
 let rate_update = 1/60;
 
 function initiate() {
-  dot.style.transform = "translate(" + (playground.offsetWidth / 2) + "px, " + (playground.offsetHeight / 2) + "px";
   button_start.addEventListener("click", startGame, false);
 }
 
@@ -33,12 +32,12 @@ function startGame() {
           velocity_x += velocity_x + event.gamma + ( rate_update * 2 );
           velocity_y += velocity_y + event.beta;
           position_x += (velocity_x * 0.5);
-          if ( position_x <= 0 || position_x >= playground.offsetWidth ) {
+          if ( position_x < 0 || position_x > playground.offsetWidth ) {
             position_x = Math.max(0, Math.min(playground.offsetWidth, position_x));
             velocity_x = 0;
           }
           position_y += (velocity_y + 0.5);
-          if ( position_y <= 0 || position_y >= playground.offsetHeight ) {
+          if ( position_y < 0 || position_y > playground.offsetHeight ) {
             position_y = Math.max(0, Math.min(playground.offsetHeight, position_y));
             velocity_y = 0;
           }
