@@ -32,8 +32,16 @@ function startGame() {
           // reading_gamma.innerHTML = event.gamma;
           velocity_x += velocity_x + event.gamma + ( rate_update * 2 );
           velocity_y += velocity_y + event.beta;
-          position_x += velocity_x;
-          position_y += velocity_y;
+          position_x += (velocity_x * 0.5);
+          if ( position_x <= 0 || position_x >= playground.offsetWidth ) {
+            position_x = Math.max(0, Math.min(playground.offsetWidth, position_x));
+            velocity_x = 0;
+          }
+          position_y += (velocity_y + 0.5);
+          if ( position_y <= 0 || position_y >= playground.offsetHeight ) {
+            position_y = Math.max(0, Math.min(playground.offsetHeight, position_y));
+            velocity_y = 0;
+          }
           dot.style.left = position_x + "px";
           dot.style.top = position_y + "px";
         });
