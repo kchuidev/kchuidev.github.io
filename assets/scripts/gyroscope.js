@@ -6,17 +6,14 @@
 let playground = document.getElementById("playground");
 let gyroscope = new Gyroscope({ frequency: 60 });
 let button_start = document.getElementById("button_start");
-// let reading_x = document.getElementById("reading_x");
-// let reading_y = document.getElementById("reading_y");
-// let reading_z = document.getElementById("reading_z");
 let reading_alpha = document.getElementById("reading_alpha");
 let reading_beta = document.getElementById("reading_beta");
 let reading_gamma = document.getElementById("reading_gamma");
+reading_alpha.innerHTML = 0;
+reading_beta.innerHTML = 0;
+reading_gamma.innerHTML = 0;
 
 function initiate() {
-  reading_alpha.innerHTML = 0;
-  reading_beta.innerHTML = 0;
-  reading_gamma.innerHTML = 0;
   let drawing = playground.getContext("2d");
   drawing.fillStyle = "#FFFFFF";
   drawing.fillRect(0, 0, 5, 5);
@@ -38,4 +35,6 @@ function startGame() {
     .catch(alert(error));
 }
 
-initiate();
+window.addEventListener("load", ()=>{
+  initiate();
+}, false);
