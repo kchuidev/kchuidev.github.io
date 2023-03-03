@@ -29,13 +29,15 @@ function startGame() {
           // reading_alpha.innerHTML = event.alpha;
           // reading_beta.innerHTML = event.beta;
           // reading_gamma.innerHTML = event.gamma;
-          velocity_x += velocity_x + event.gamma + ( rate_update * 2 );
-          velocity_y += velocity_y + event.beta;
+          velocity_x += event.gamma * ( rate_update * 2 );
+          velocity_y += event.beta * rate_update;
+
           position_x += (velocity_x * 0.5);
           if ( position_x < 0 || position_x > playground.clientWidth ) {
             position_x = Math.max(0, Math.min(playground.clientWidth, position_x));
             velocity_x = 0;
           }
+          
           position_y += (velocity_y + 0.5);
           if ( position_y < 0 || position_y > playground.clientHeight ) {
             position_y = Math.max(0, Math.min(playground.clientHeight, position_y));
