@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Comparison - kchui.dev</title>
+    <!--meta-->
+    <meta name="author" content="kchui">
+    <meta name="description" content="Where records are kept, experiments are carried out, and also personal secrets are revealed">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!--base-->
+    <base href="https://kchui.dev/" target="_self">
+    <!--canonical-->
+    <link rel="canonical" href="https://kchui.dev/side-projects/image-comparison.html">
+    <!--favicon-->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!--css-->
+    <link rel="stylesheet" href="assets/styles/basis.css">
+    <link rel="stylesheet" href="assets/styles/header.css">
+    <link rel="stylesheet" href="assets/styles/footer.css">
+    <link rel="stylesheet" href="assets/styles/notification.css">
+    <link rel="stylesheet" href="assets/styles/image-comparison.css">
+    <!--js-->
+    <script src="assets/scripts/image-comparison.js" defer></script>
+    <script src="assets/scripts/notification.js" defer></script>
+    <script src="assets/scripts/menu.js" defer></script>
+    <script src="assets/scripts/footer.js" defer></script>
+  </head>
+  <body>
+    <!--notification-->
+    <div id="notification_container">
+      <div id="notification"></div>
+    </div>
+    <!--header-->
+    <div id="header_container">
+      <div id="header">
+        <a href="index.html" id="website_title">kchui.dev</a>
+        <nav id="navigation_menu">
+          <a href="about-me.html" class="navigation_menu_items">About Me</a>
+          <a href="side-projects.html" class="navigation_menu_items">Side Projects</a>
+        </nav>
+        <div id="toolbar">
+          <div id="menu_icon">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--content-->
+    <div id="content_container">
+      <h4>Image Comparison</h4>
+      <div id="image-comparison">
+        <div id="image_container" class="rows">
+          <div class="col_6">
+            <div id="a_container">
+              <h5 class="image_headings">Image A</h5>
+              <div class="image_containers" id="image_a_container">
+                <label class="labels" id="label_image_a" for="file_image_a">drag & drop or browse the image here</label>
+                <input type="file" id="file_image_a" accept="image/png, image/jpg, image/jpeg">
+              </div>
+            </div>
+          </div>
+          <div class="col_6">
+            <div id="b_container">
+              <h5 class="image_headings">Image B</h5>
+              <div class="image_containers" id="image_b_container">
+                <label class="labels" id="label_image_b" for="file_image_b">drag & drop or browse the image here</label>
+                <input type="file" id="file_image_b" accept="image/png, image/jpg, image/jpeg">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="result_container" class="hidden">
+          <div id="result_table_container" class="table_containers">
+            <table id="result_table">
+              <thead>
+                <tr>
+                  <td colspan="2"><h5 id="result_heading">Result</h5></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="row_image_preview"></tr>
+                <tr id="row_image_data_url"></tr>
+                <tr id="row_image_name"></tr>
+                <tr id="row_image_time_modification"></tr>
+                <tr id="row_image_size"></tr>
+                <tr id="row_image_type"></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="button_container" class="rows">
+          <div class="col_3" id="reset_button_container">
+            <div class="button_containers">
+              <button id="reset_button" disabled>Reset</button>
+            </div>
+          </div>
+          <div class="col_auto" id="compare_button_container">
+            <div class="button_containers">
+              <button id="compare_button" disabled>Compare</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--footer-->
+    <div id="footer_container">
+      <p id="footer"></p>
+    </div>
+  </body>
+</html>
