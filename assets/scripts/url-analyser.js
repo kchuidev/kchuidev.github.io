@@ -5,14 +5,12 @@
 
 let label_input_url = document.querySelector("label[for='input_url']");
 let input_url = document.getElementById("input_url");
-let button_analyse = document.getElementById("button_analyse");
+let button_analyse = document.getElementById("analyse_button");
 let result = document.getElementById("result");
 let table_result = document.getElementById("result_table");
 
 function initiate() {
   button_analyse.addEventListener("click", ()=>{
-    button_analyse.classList.add("pressed");
-    setTimeout(()=>{button_analyse.classList.remove("pressed");}, 200);
     analyseURL().then(
       (url_analysed)=>{
         displayResult(url_analysed);
