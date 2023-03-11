@@ -25,7 +25,7 @@ let removal_signs = document.querySelectorAll(".removal_signs");
 let input_event = document.getElementById("input_event");
 let input_from = document.getElementById("input_from");
 let input_to = document.getElementById("input_to");
-let button_record = document.getElementById("button_record");
+let button_record = document.getElementById("record_button");
 let colours = ["#990000", "#007399", "#009973", "#999900", "#008040", "#994D00", "#800060"];
 let index_colour = 0;
 
