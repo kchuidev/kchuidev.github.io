@@ -3,15 +3,14 @@
   side-projects.css
 */
 
-.side-projects_internal_links:hover .side-projects_icons {
-  opacity: 1;
+.card_containers {
+  min-height: 6rem;
+  text-align: center;
+  margin: 0.4rem;
+  background-color: #000000;
 }
-.side-projects_icons {
-  opacity: 0.6;
-  max-width: 200px;
-  display: block;
-  margin: auto;
-  transition: opacity 0.6s;
+.cards {
+  color: #FFFFFF;
 }
 .side-projects_titles {
   font-size: 1.2rem;

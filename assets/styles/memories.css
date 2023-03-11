@@ -155,7 +155,7 @@ button[name="record"] {
   height: 100%;
   max-height: 44px;
   padding: 10px;
-  margin-top: 22px;
+  margin-top: 28px;
 }
 @media ( max-width: 480px ) {
   #graph {

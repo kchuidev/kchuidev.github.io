@@ -5,22 +5,30 @@
 
 @font-face {
   font-family: 'Zen Kaku Gothic Antique Regular';
-  src: url(/assets/fonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Regular.ttf);
+  src:
+    url(/assets/fonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Regular.ttf)
+    format("opentype");
 }
 
 @font-face {
   font-family: 'Zen Kaku Gothic Antique Light';
-  src: url(/assets/fonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Light.ttf);
+  src:
+    url(/assets/fonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Light.ttf)
+    format("opentype");
 }
 
 @font-face {
   font-family: 'Zen Kaku Gothic Antique Medium';
-  src: url(/assets/fonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Medium.ttf);
+  src:
+    url(/assets/fonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Medium.ttf)
+    format("opentype");
 }
 
 @font-face {
   font-family: 'Zen Kaku Gothic Antique Bold';
-  src: url(/assets/fonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Bold.ttf);
+  src:
+    url(/assets/fonts/Zen_Kaku_Gothic_Antique/ZenKakuGothicAntique-Bold.ttf)
+    format("opentype");
 }
 
 /* Variables */
@@ -46,7 +54,7 @@ body {
   --colour-hyperlink-background: #3C4D5D;
   --colour-hyperlink-background-hover: #50667C;
   --color-header-border: #FFFFFF;
-  --colour-table-border: #FFFFFF;
+  --colour-table-border: #B3B3B3;
 }
 
 /* Basic Tags */
@@ -133,7 +141,7 @@ img {
 .button_containers {
   position: relative;
   height: 100%;
-  margin: 4px;
+  margin: 0.2rem 0;
   user-select: none;
 }
 button {
