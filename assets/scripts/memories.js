@@ -31,23 +31,21 @@ let index_colour = 0;
 
 function initiate() {
   event_recorded = {};
-  if ( events_stored != null && events_stored_loaded == false ) {
-    if (events_stored.length > 0) {
-      description.classList.add("hidden");
-      details.classList.remove("hidden");
-      events_recorded = events_stored;
-      events_recorded.forEach((e)=>{
-        titles_stored.push(e.event);
-        updateYearLabel(e.from);
-        displayEvent(e);
-      });
-      drawGraph();
-    }
-    events_stored_loaded = true;
+  if ( events_stored != null && events_stored.length > 0 && events_stored_loaded == false ) {
+    description.classList.add("hidden");
+    details.classList.remove("hidden");
+    events_recorded = events_stored;
+    events_recorded.forEach((e)=>{
+      titles_stored.push(e.event);
+      updateYearLabel(e.from);
+      displayEvent(e);
+    });
+    drawGraph();
   } else {
     updateYearLabel();
     events_recorded = [];
   }
+  events_stored_loaded = true;
   button_record.addEventListener("click", recordEvent, false);
   return;
 }
