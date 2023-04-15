@@ -65,7 +65,7 @@ button[disabled] {
   border: 2px solid #A6A6A6;
   cursor: pointer;
 }
-.entries:hover {
+.entries:hover, .entries.selected {
   color: #FFFFFF;
   background-color: #333333;
   border-color: #333333;

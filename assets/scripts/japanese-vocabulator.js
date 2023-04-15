@@ -5,7 +5,7 @@
 
 const time = new Date();
 let entry_registered;
-let entry_selected;
+let word_selected;
 let entries_registered;
 let entries_stored = JSON.parse(localStorage.getItem("japanese-vocabulator_entries_registered"));
 let entries_stored_loaded = false;
@@ -163,7 +163,10 @@ function applyFilter(event) {
 }
 
 function clearDetails() {
-  entry_selected = "";
+  word_selected = "";
+  document.querySelectorAll(".entries").forEach((e)=>{
+    e.classList.remove("selected");
+  });
   button_remove.disabled = true;
   display_word.innerHTML =  "-";
   display_furigana.innerHTML =  "-";
@@ -173,8 +176,10 @@ function clearDetails() {
 }
 
 function displayDetails(event) {
+  clearDetails();
   let entry_targeted = event.target || event.srcElement;
-  entry_selected = entry_targeted.dataset.word;
+  word_selected = entry_targeted.dataset.word;
+  entry_targeted.classList.add("selected");
   button_remove.disabled = false;
   display_word.innerHTML =  entry_targeted.dataset.word;
   display_furigana.innerHTML =  entry_targeted.dataset.furigana;
@@ -184,8 +189,8 @@ function displayDetails(event) {
 }
 
 function removeEntry() {
-  if ( entries_registered != undefined && entry_selected != "" && !button_remove.disabled ) {
-    entries_registered.splice( entries_registered.findIndex((e) => e.word === entry_selected), 1 );
+  if ( entries_registered != undefined && word_selected != "" && !button_remove.disabled ) {
+    entries_registered.splice( entries_registered.findIndex((e) => e.word === word_selected), 1 );
     localStorage.setItem("japanese-vocabulator_entries_registered", JSON.stringify(entries_registered));
     list_entry.innerHTML = "";
     clearDetails();
