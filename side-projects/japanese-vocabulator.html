@@ -55,12 +55,17 @@
           <p id="description">単語は下のフィールドで登録してから、ここにリストになります。</p>
           <div id="details" class="hidden">
             <div class="rows">
-              <div class="col_6">
+              <div class="col-md_4 col_12">
                 <div>
                   <p class="entry_details"><span class="labels">単語：</span> <span class="values" id="display_word">-</span></p>
                 </div>
               </div>
-              <div class="col_6">
+              <div class="col-md_4 col_12">
+                <div>
+                  <p class="entry_details"><span class="labels">振り仮名：</span> <span class="values" id="display_furigana">-</span></p>
+                </div>
+              </div>
+              <div class="col-md_4 col_12">
                 <div>
                   <p class="entry_details"><span class="labels">品詞：</span> <span class="values" id="display_type">-</span></p>
                 </div>
@@ -97,23 +102,37 @@
             </div>
             <div class="col-md_3 col-sm_6 col_6">
               <div class="input_containers">
+                <label for="input_furigana">振り仮名<input type="text" id="input_furigana" name="furigana" required></label>
+              </div>
+            </div>
+            <div class="col-md_3 col-sm_6 col_6">
+              <div class="input_containers">
                 <label for="input_type">品詞</label>
                 <select name="input_type" id="input_type">
                   <option value="" selected disabled hidden>選択</option>
-                  <option value="名詞">名詞</option>
-                  <option value="動詞">動詞</option>
-                  <option value="形容詞">形容詞</option>
-                  <option value="副詞">副詞</option>
+                  <option value="名">名詞</option>
+                  <optgroup label="動詞">
+                    <option value="サ">サ変動詞</option>
+                    <option value="カ">カ変動詞</option>
+                    <option value="一">一段動詞</option>
+                    <option value="五">五段動詞</option>
+                  </optgroup>
+                  <optgroup label="形容詞">
+                    <option value="ナ">ナ形容詞</option>
+                    <option value="イ">イ形容詞</option>
+                  </optgroup>
+                  <option value="副">副詞</option>
+                  <option value="四">四字熟語</option>
                   <option value="諺">諺</option>
                 </select>
               </div>
             </div>
-            <div class="col-md_3 col_12">
+            <div class="col-md_3 col_6">
               <div class="input_containers">
                 <label for="input_meaning">意味<input type="text" id="input_meaning" name="meaning" required></label>
               </div>
             </div>
-            <div class="col-md_3 col_12">
+            <div class="col_12">
               <div id="register_button_container">
                 <button type="button" id="register_button" name="register">登録</button>
               </div>
