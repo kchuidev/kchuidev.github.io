@@ -3,6 +3,10 @@
   japanese-vocabulator.css
 */
 
+.hidden {
+  display: none;
+}
+
 /* review */
 #review {
   position: relative;
@@ -16,12 +20,12 @@
   text-align: center;
   color: #333333;
 }
-#description.hidden, #details.hidden, #list.hidden {
-  display: none;
-}
 .entry_details {
   margin: 4px 0;
   color: #333333;
+}
+#remove_button_container {
+  margin: 0.6rem 0;
 }
 button[name="remove"] {
   font-size: 0.8rem;
@@ -37,7 +41,19 @@ button[disabled] {
 }
 #list_heading {
   color: #333333;
+  font-size: 1rem;
   margin: 0.2rem;
+}
+#filter_heading {
+  color: #333333;
+  font-size: 0.8rem;
+  margin: 0.2rem;
+}
+.filter_labels, .filter_labels:focus-within {
+  color: #333333;
+}
+#entry_list {
+  margin: 0.4rem 0;
 }
 .entries {
   position: relative;

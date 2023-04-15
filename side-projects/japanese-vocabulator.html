@@ -15,16 +15,16 @@
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!--css-->
-    <link rel="stylesheet" href="../assets/styles/basis.css">
-    <link rel="stylesheet" href="../assets/styles/header.css">
-    <link rel="stylesheet" href="../assets/styles/footer.css">
-    <link rel="stylesheet" href="../assets/styles/notification.css">
-    <link rel="stylesheet" href="../assets/styles/japanese-vocabulator.css">
+    <link rel="stylesheet" href="assets/styles/basis.css">
+    <link rel="stylesheet" href="assets/styles/header.css">
+    <link rel="stylesheet" href="assets/styles/footer.css">
+    <link rel="stylesheet" href="assets/styles/notification.css">
+    <link rel="stylesheet" href="assets/styles/japanese-vocabulator.css">
     <!--js-->
-    <script src="../assets/scripts/japanese-vocabulator.js" defer></script>
-    <script src="../assets/scripts/notification.js" defer></script>
-    <script src="../assets/scripts/menu.js" defer></script>
-    <script src="../assets/scripts/footer.js" defer></script>
+    <script src="assets/scripts/japanese-vocabulator.js" defer></script>
+    <script src="assets/scripts/notification.js" defer></script>
+    <script src="assets/scripts/menu.js" defer></script>
+    <script src="assets/scripts/footer.js" defer></script>
   </head>
   <body>
     <!--notification-->
@@ -80,7 +80,7 @@
             </div>
             <div class="rows">
               <div class="col_12">
-                <div>
+                <div id="remove_button_container">
                   <button type="button" id="remove_button" name="remove" disabled>削除</button>
                 </div>
               </div>
@@ -89,6 +89,39 @@
           </div>
           <div id="list" class="hidden">
             <h5 id="list_heading">単語リスト</h5>
+            <h6 id="filter_heading">フィルター</h6>
+            <div class="rows">
+              <div class="col-md_2">
+                <div class="filter_checkbox_containers">
+                  <label for="filter_checkbox_noun" class="filter_labels"><input type="checkbox" name="filter_checkbox_noun" data-type="名" id="filter_checkbox_noun" class="filter_checkboxes"> 名詞</label>
+                </div>
+              </div>
+              <div class="col-md_2">
+                <div class="filter_checkbox_containers">
+                  <label for="filter_checkbox_verb" class="filter_labels"><input type="checkbox" name="filter_checkbox_verb" data-type="動" id="filter_checkbox_verb" class="filter_checkboxes"> 動詞</label>
+                </div>
+              </div>
+              <div class="col-md_2">
+                <div class="filter_checkbox_containers">
+                  <label for="filter_checkbox_adjective" class="filter_labels"><input type="checkbox" name="filter_checkbox_adjective" data-type="形" id="filter_checkbox_adjective" class="filter_checkboxes"> 形容詞</label>
+                </div>
+              </div>
+              <div class="col-md_2">
+                <div class="filter_checkbox_containers">
+                  <label for="filter_checkbox_adverb" class="filter_labels"><input type="checkbox" name="filter_checkbox_adverb" data-type="副" id="filter_checkbox_adverb" class="filter_checkboxes"> 副詞</label>
+                </div>
+              </div>
+              <div class="col-md_2">
+                <div class="filter_checkbox_containers">
+                  <label for="filter_checkbox_proverb" class="filter_labels"><input type="checkbox" name="filter_checkbox_proverb" data-type="諺" id="filter_checkbox_proverb" class="filter_checkboxes"> 諺</label>
+                </div>
+              </div>
+              <div class="col-md_2">
+                <div class="filter_checkbox_containers">
+                  <label for="filter_checkbox_idiom" class="filter_labels"><input type="checkbox" name="filter_checkbox_idiom" data-type="四" id="filter_checkbox_idiom" class="filter_checkboxes"> 四字熟語</label>
+                </div>
+              </div>
+            </div>
             <div id="entry_list" class="rows">
             </div>
           </div>
@@ -111,16 +144,8 @@
                 <select name="input_type" id="input_type">
                   <option value="" selected disabled hidden>選択</option>
                   <option value="名">名詞</option>
-                  <optgroup label="動詞">
-                    <option value="サ">サ変動詞</option>
-                    <option value="カ">カ変動詞</option>
-                    <option value="一">一段動詞</option>
-                    <option value="五">五段動詞</option>
-                  </optgroup>
-                  <optgroup label="形容詞">
-                    <option value="ナ">ナ形容詞</option>
-                    <option value="イ">イ形容詞</option>
-                  </optgroup>
+                  <option value="動">動詞</option>
+                  <option value="形">形容詞</option>
                   <option value="副">副詞</option>
                   <option value="四">四字熟語</option>
                   <option value="諺">諺</option>

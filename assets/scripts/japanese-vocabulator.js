@@ -9,20 +9,16 @@ let entry_selected;
 let entries_registered;
 let entries_stored = JSON.parse(localStorage.getItem("japanese-vocabulator_entries_registered"));
 let entries_stored_loaded = false;
-let words_stored = [];
 let types = {
   "名": "名詞",
-  "サ": "サ変動詞",
-  "カ": "カ変動詞",
-  "一": "一段動詞",
-  "五": "五段動詞",
-  "ナ": "ナ形容詞",
-  "イ": "イ形容詞",
+  "動": "動詞",
+  "形": "形容詞",
   "副": "副詞",
   "四": "四字熟語",
   "諺": "諺"
-  
 };
+let filter_checkboxes = document.querySelectorAll(".filter_checkboxes");
+let types_hidden = [];
 let description = document.getElementById("description");
 let details = document.getElementById("details");
 let list = document.getElementById("list");
@@ -46,13 +42,16 @@ function initiate() {
     list.classList.remove("hidden");
     entries_registered = entries_stored;
     entries_registered.forEach((e)=>{
-      words_stored.push(e.word);
       displayEntry(e);
     });
   } else {
     entries_registered = [];
   }
   entries_stored_loaded = true;
+  filter_checkboxes.forEach((c)=>{
+    c.checked = true;
+    c.addEventListener("change", applyFilter, false);
+  });
   button_remove.disabled = true;
   button_remove.addEventListener("click", removeEntry, false);
   button_register.addEventListener("click", registerEntry, false);
@@ -86,11 +85,6 @@ function validateInput() {
     case ( /^\s+$/.test(input_word.value) ):
       alert("単語のフィールドにスペースだけ入力しないでください。");
       input_event.focus();
-      document.querySelector("label[for='" + input_word.id + "']").classList.add("error");
-      return false;
-    case ( words_stored.includes(input_word.value) ):
-      alert("同じな単語はもう登録しました。");
-      input_word.focus();
       document.querySelector("label[for='" + input_word.id + "']").classList.add("error");
       return false;
     case ( input_furigana.value == null || input_furigana.value == "" ):
@@ -160,6 +154,14 @@ function displayEntry(object_entry) {
   return;
 }
 
+function applyFilter(event) {
+  let type_changed = event.target || event.srcElement;
+  let entry_container = document.querySelector("div[data-type='" + type_changed.dataset.type + "']");
+  if ( entry_container ) {
+    entry_container.parentNode.classList.toggle("hidden");
+  }
+}
+
 function clearDetails() {
   entry_selected = "";
   button_remove.disabled = true;
@@ -185,7 +187,6 @@ function removeEntry() {
   if ( entries_registered != undefined && entry_selected != "" && !button_remove.disabled ) {
     entries_registered.splice( entries_registered.findIndex((e) => e.word === entry_selected), 1 );
     localStorage.setItem("japanese-vocabulator_entries_registered", JSON.stringify(entries_registered));
-    words_stored = [];
     list_entry.innerHTML = "";
     clearDetails();
     if ( entries_registered.length > 0 ) {
@@ -193,7 +194,6 @@ function removeEntry() {
       details.classList.remove("hidden");
       list.classList.remove("hidden");
       entries_registered.forEach((e)=>{
-        words_stored.push(e.event);
         displayEntry(e);
       });
     } else {
