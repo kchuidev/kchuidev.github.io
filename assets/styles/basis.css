@@ -172,13 +172,17 @@ table {
   margin: auto;
   margin-top: 1rem;
   color: var(--colour-main);
-  min-height: 1600px;
+  min-height: 90vh;
 }
 @media(max-width:1048px) {
   #content_container {
     margin-left: 12px;
     margin-right: 12px;
   }
+}
+
+.hidden {
+  display: none;
 }
 
 /* Grid System */
