@@ -33,6 +33,7 @@ let input_meaning = document.getElementById("input_meaning");
 let list_entry = document.getElementById("entry_list");
 let button_remove = document.getElementById("remove_button");
 let button_register = document.getElementById("register_button");
+let button_export = document.getElementById("export_button");
 
 function initiate() {
   entry_registered = {};
@@ -44,8 +45,10 @@ function initiate() {
     entries_registered.forEach((e)=>{
       displayEntry(e);
     });
+    button_export.disabled = false;
   } else {
     entries_registered = [];
+    button_export.disabled = true;
   }
   entries_stored_loaded = true;
   filter_checkboxes.forEach((c)=>{
@@ -55,6 +58,7 @@ function initiate() {
   button_remove.disabled = true;
   button_remove.addEventListener("click", removeEntry, false);
   button_register.addEventListener("click", registerEntry, false);
+  button_export.addEventListener("click", exportEntries, false);
   return;
 }
 
@@ -151,6 +155,7 @@ function displayEntry(object_entry) {
   col_added.appendChild(entry_added);
   entry_added.addEventListener("click", displayDetails, false);
 
+  button_export.disabled = false;
   return;
 }
 
@@ -160,6 +165,8 @@ function applyFilter(event) {
   if ( entry_container ) {
     entry_container.parentNode.classList.toggle("hidden");
   }
+  clearDetails();
+  return;
 }
 
 function clearDetails() {
@@ -201,14 +208,33 @@ function removeEntry() {
       entries_registered.forEach((e)=>{
         displayEntry(e);
       });
+      button_export.disabled = false;
     } else {
       description.classList.remove("hidden");
       details.classList.add("hidden");
       list.classList.add("hidden");
       entry_registered = {};
       entries_registered = [];
+      button_export.disabled = true;
     }
     return;
+  }
+}
+
+function exportEntries() {
+  if ( entries_registered.length > 0 ) {
+    let content_export = "data:text/csv;charset=utf-8,";
+    content_export += "単語,振り仮名,品詞,意味\r\n";
+    entries_registered.forEach((e)=>{
+      let row_export = e.word + "," + e.furigana + "," + types[e.type] + "," + e.meaning;
+      content_export += row_export + "\r\n";
+    });
+    var URI_export = encodeURI(content_export);
+    window.open(URI_export);
+    return true;
+  } else {
+    alert("登録されている単語はありません。");
+    return false;
   }
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <title>日本語ボキャブレーター - kchui.dev</title>
@@ -9,22 +9,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <!--base-->
-    <!-- <base href="https://kchui.dev/" target="_self"> -->
+    <base href="https://kchui.dev/" target="_self">
     <!--canonical-->
     <link rel="canonical" href="https://kchui.dev/side-projects/japanese-vocabulator.html">
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!--css-->
-    <link rel="stylesheet" href="../assets/styles/basis.css">
-    <link rel="stylesheet" href="../assets/styles/header.css">
-    <link rel="stylesheet" href="../assets/styles/footer.css">
-    <link rel="stylesheet" href="../assets/styles/notification.css">
-    <link rel="stylesheet" href="../assets/styles/japanese-vocabulator.css">
+    <link rel="stylesheet" href="assets/styles/basis.css">
+    <link rel="stylesheet" href="assets/styles/header.css">
+    <link rel="stylesheet" href="assets/styles/footer.css">
+    <link rel="stylesheet" href="assets/styles/notification.css">
+    <link rel="stylesheet" href="assets/styles/japanese-vocabulator.css">
     <!--js-->
-    <script src="../assets/scripts/japanese-vocabulator.js" defer></script>
-    <script src="../assets/scripts/notification.js" defer></script>
-    <script src="../assets/scripts/menu.js" defer></script>
-    <script src="../assets/scripts/footer.js" defer></script>
+    <script src="assets/scripts/japanese-vocabulator.js" defer></script>
+    <script src="assets/scripts/notification.js" defer></script>
+    <script src="assets/scripts/menu.js" defer></script>
+    <script src="assets/scripts/footer.js" defer></script>
+    <script src="assets/scripts/mode.js" defer></script>
   </head>
   <body>
     <!--notification-->
@@ -52,7 +53,7 @@
       <h4>日本語ボキャブレーター</h4>
       <div id="japanese-vocabulator">
         <div id="review">
-          <p id="description">単語は下のフィールドで登録してから、ここにリストになります。</p>
+          <p id="description">単語は下のフィールドで登録してから、ここでリストが生成します。</p>
           <div id="details" class="hidden">
             <div class="rows">
               <div class="col-md_4 col_12">
@@ -161,6 +162,12 @@
               <div id="register_button_container">
                 <button type="button" id="register_button" name="register">登録</button>
               </div>
+            </div>
+            <div class="col_12">
+              <div id="export_button_container">
+                <button type="button" id="export_button" name="export">エクスポート</button>
+              </div>
+              <p class="notes" id="export_note">エクスポートファイルの形式はcsvです。</p>
             </div>
           </div>
         </div>
