@@ -53,7 +53,7 @@ function initiate() {
   entries_stored_loaded = true;
   filter_checkboxes.forEach((c)=>{
     c.checked = true;
-    c.addEventListener("change", applyFilter, false);
+    c.addEventListener("change", applyFilters, false);
   });
   button_remove.disabled = true;
   button_remove.addEventListener("click", removeEntry, false);
@@ -159,11 +159,13 @@ function displayEntry(object_entry) {
   return;
 }
 
-function applyFilter(event) {
+function applyFilters(event) {
   let type_changed = event.target || event.srcElement;
-  let entry_container = document.querySelector("div[data-type='" + type_changed.dataset.type + "']");
-  if ( entry_container ) {
-    entry_container.parentNode.classList.toggle("hidden");
+  let entries_targeted = document.querySelectorAll("div[data-type='" + type_changed.dataset.type + "']");
+  if ( entries_targeted.length > 0 ) {
+    entries_targeted.forEach((e)=>{
+      e.parentNode.classList.toggle("hidden");
+    });
   }
   clearDetails();
   return;
