@@ -1,0 +1,22 @@
+/*
+  kchui.dev
+  mode.css
+*/
+
+/* debugging */
+#debugging_container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0.4rem 0.4rem;
+  max-height: 40vh;
+  overflow: auto;
+  background-color: #000000;
+}
+.debugging_messages {
+  color: #00CC00;
+  line-height: 1.2rem;
+  font-family: 'Courier New', monospace;
+  max-width: var(--width-content);
+  margin: auto;
+}
