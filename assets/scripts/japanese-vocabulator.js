@@ -225,7 +225,7 @@ function removeEntry() {
 function exportEntries() {
   if ( entries_registered.length > 0 ) {
     let content_export = "data:text/csv;charset=utf-8,";
-    content_export += time.toUTCString() + "\r\n";
+    content_export += time.toUTCString().replace(",", "") + "\r\n";
     content_export += "単語,振り仮名,品詞,意味\r\n";
     entries_registered.forEach((e)=>{
       let row_export = e.word + "," + e.furigana + "," + types[e.type] + "," + e.meaning;
