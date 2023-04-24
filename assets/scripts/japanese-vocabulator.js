@@ -3,7 +3,6 @@
   japanese-vocabulator.js
 */
 
-const time = new Date();
 let entry_registered;
 let word_selected;
 let entries_registered;
@@ -224,15 +223,27 @@ function removeEntry() {
 
 function exportEntries() {
   if ( entries_registered.length > 0 ) {
+    const time = new Date();
+    let time_export = "";
+    time_export += time.getFullYear().toString();
+    time_export += (Number(time.getMonth()) + 1 ).toString();
+    time_export += time.getDate().toString();
+    time_export += time.getHours().toString();
+    time_export += time.getMinutes().toString();
+    time_export += time.getSeconds().toString();
     let content_export = "data:text/csv;charset=utf-8,";
-    content_export += time.toUTCString().replace(",", "") + "\r\n";
+    content_export += time_export + "\r\n";
     content_export += "単語,振り仮名,品詞,意味\r\n";
     entries_registered.forEach((e)=>{
       let row_export = e.word + "," + e.furigana + "," + types[e.type] + "," + e.meaning;
       content_export += row_export + "\r\n";
     });
     var URI_export = encodeURI(content_export);
-    window.open(URI_export);
+    var link_export = document.createElement("a");
+    link_export.setAttribute("href", URI_export);
+    link_export.setAttribute("download", "list_" + time_export);
+    document.body.appendChild(link_export);
+    link_export.click();
     return true;
   } else {
     alert("登録されている単語はありません。");
