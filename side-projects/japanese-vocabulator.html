@@ -9,24 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <!--base-->
-    <base href="https://kchui.dev/" target="_self">
+    <!-- <base href="https://kchui.dev/" target="_self"> -->
     <!--canonical-->
     <link rel="canonical" href="https://kchui.dev/side-projects/japanese-vocabulator.html">
     <!--favicon-->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!--css-->
-    <link rel="stylesheet" href="assets/styles/basis.css">
-    <link rel="stylesheet" href="assets/styles/header.css">
-    <link rel="stylesheet" href="assets/styles/footer.css">
-    <link rel="stylesheet" href="assets/styles/notification.css">
-    <link rel="stylesheet" href="assets/styles/japanese-vocabulator.css">
-    <link rel="stylesheet" href="assets/styles/mode.css">
+    <link rel="stylesheet" href="../assets/styles/basis.css">
+    <link rel="stylesheet" href="../assets/styles/header.css">
+    <link rel="stylesheet" href="../assets/styles/footer.css">
+    <link rel="stylesheet" href="../assets/styles/notification.css">
+    <link rel="stylesheet" href="../assets/styles/japanese-vocabulator.css">
+    <link rel="stylesheet" href="../assets/styles/mode.css">
+    <!--lib-->
+    <script type="module" src="../assets/libraries/kaki-jun/kaki-jun.js"></script>
     <!--js-->
-    <script src="assets/scripts/japanese-vocabulator.js" defer></script>
-    <script src="assets/scripts/notification.js" defer></script>
-    <script src="assets/scripts/menu.js" defer></script>
-    <script src="assets/scripts/footer.js" defer></script>
-    <script src="assets/scripts/mode.js" defer></script>
+    <script src="../assets/scripts/japanese-vocabulator.js" defer></script>
+    <script src="../assets/scripts/notification.js" defer></script>
+    <script src="../assets/scripts/menu.js" defer></script>
+    <script src="../assets/scripts/footer.js" defer></script>
+    <script src="../assets/scripts/mode.js" defer></script>
   </head>
   <body>
     <!--notification-->
@@ -57,17 +59,24 @@
           <p id="description">単語は下のフィールドで登録してから、ここでリストが生成します。</p>
           <div id="details" class="hidden">
             <div class="rows">
-              <div class="col-md_4 col_12">
+              <div class="col_12">
+                <div id="display_order"></div>
+              </div>
+            </div>
+            <div class="rows">
+              <div class="col_12">
                 <div>
                   <p class="entry_details"><span class="labels">単語：</span> <span class="values" id="display_word">-</span></p>
                 </div>
               </div>
-              <div class="col-md_4 col_12">
+            </div>
+            <div class="rows">
+              <div class="col-sm_6 col_12">
                 <div>
                   <p class="entry_details"><span class="labels">振り仮名：</span> <span class="values" id="display_furigana">-</span></p>
                 </div>
               </div>
-              <div class="col-md_4 col_12">
+              <div class="col-sm_6 col_12">
                 <div>
                   <p class="entry_details"><span class="labels">品詞：</span> <span class="values" id="display_type">-</span></p>
                 </div>
@@ -168,10 +177,10 @@
               <div id="export_button_container">
                 <button type="button" id="export_button" name="export">エクスポート</button>
               </div>
-              <p class="notes" id="export_note">エクスポートファイルの形式はcsvです。定期的に単語リストをエクスポートすることが勧められます。</p>
             </div>
           </div>
         </div>
+        <p class="notes">This application uses <a href="https://github.com/code4fukui/kaki-jun/">kaki-jun</a>, a project developed by <a href="https://github.com/code4fukui">Code for FUKUI</a> and based on <a href="https://kanjivg.tagaini.net/">KanjiVG</a> by Ulrich Apel.</p>
       </div>
     </div>
     <!--footer-->

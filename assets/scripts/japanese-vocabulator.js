@@ -20,6 +20,7 @@ let filter_checkboxes = document.querySelectorAll(".filter_checkboxes");
 let description = document.getElementById("description");
 let details = document.getElementById("details");
 let list = document.getElementById("list");
+let display_order = document.getElementById("display_order");
 let display_word = document.getElementById("display_word");
 let display_furigana = document.getElementById("display_furigana");
 let display_type = document.getElementById("display_type");
@@ -175,10 +176,11 @@ function clearDetails() {
     e.classList.remove("selected");
   });
   button_remove.disabled = true;
-  display_word.innerHTML =  "-";
-  display_furigana.innerHTML =  "-";
-  display_type.innerHTML =  "-";
-  display_meaning.innerHTML =  "-";
+  display_order.innerHTML = "";
+  display_word.innerText =  "-";
+  display_furigana.innerText =  "-";
+  display_type.innerText =  "-";
+  display_meaning.innerText =  "-";
   return;
 }
 
@@ -188,10 +190,11 @@ function displayDetails(event) {
   word_selected = entry_targeted.dataset.word;
   entry_targeted.classList.add("selected");
   button_remove.disabled = false;
-  display_word.innerHTML =  entry_targeted.dataset.word;
-  display_furigana.innerHTML =  entry_targeted.dataset.furigana;
-  display_type.innerHTML =  types[entry_targeted.dataset.type];
-  display_meaning.innerHTML =  entry_targeted.dataset.meaning;
+  display_order.innerHTML = "<kaki-jun>" + entry_targeted.dataset.word + "</kaki-jun>";
+  display_word.innerText =  entry_targeted.dataset.word;
+  display_furigana.innerText =  entry_targeted.dataset.furigana;
+  display_type.innerText =  types[entry_targeted.dataset.type];
+  display_meaning.innerText =  entry_targeted.dataset.meaning;
   return;
 }
 
@@ -226,7 +229,7 @@ function exportEntries() {
     const time = new Date();
     let time_export = "";
     time_export += time.getFullYear().toString();
-    time_export += (Number(time.getMonth()) + 1 ).toString();
+    time_export += (Number(("0" + (time.getMonth() + 1)).slice(-2))).toString();
     time_export += time.getDate().toString();
     time_export += time.getHours().toString();
     time_export += time.getMinutes().toString();

@@ -23,6 +23,25 @@
 .entry_details .values {
   user-select: auto;
 }
+/* kaki-jun */
+#display_order {
+  text-align: center;
+  background-color: #FFFFFF;
+}
+kaki-jun {
+  padding-top: 1rem;
+  cursor: pointer;
+}
+#display_order svg g {
+  stroke: #333333;
+  stroke-width: 3;
+  stroke-linecap: butt;
+  stroke-linejoin: bevel;
+}
+#display_order svg g text {
+  stroke: #666666;
+  stroke-width: 1;
+}
 #remove_button_container {
   margin: 0.6rem 0;
 }
@@ -123,4 +142,9 @@ button[name="export"] {
 }
 button[name="export"]:hover {
   background-color: #00E6E6;
+}
+
+/* attribution */
+.notes {
+  margin: 1rem 0;
 }
