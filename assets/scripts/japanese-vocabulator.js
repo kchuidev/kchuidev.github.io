@@ -229,7 +229,7 @@ function exportEntries() {
     const time = new Date();
     let time_export = "";
     time_export += time.getFullYear().toString();
-    time_export += (Number(("0" + (time.getMonth() + 1)).slice(-2))).toString();
+    time_export += ("0" + (time.getMonth() + 1)).slice(-2).toString();
     time_export += time.getDate().toString();
     time_export += time.getHours().toString();
     time_export += time.getMinutes().toString();

@@ -35,8 +35,6 @@ kaki-jun {
 #display_order svg g {
   stroke: #333333;
   stroke-width: 3;
-  stroke-linecap: butt;
-  stroke-linejoin: bevel;
 }
 #display_order svg g text {
   stroke: #666666;
