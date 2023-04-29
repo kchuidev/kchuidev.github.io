@@ -280,7 +280,7 @@ function processImportFile() {
         alert("許可されるファイルの形式はcsvだけです。");
         file_import_uploaded.value = "";
         return false;
-      case (!isNaN(file_import_entries[0])):
+      case (isNaN(file_import_entries[0])):
         alert("アップロードされたファイルは内容が改竄されましたので、読み取られません。[0]");
         file_import_uploaded.value = "";
         return false;
