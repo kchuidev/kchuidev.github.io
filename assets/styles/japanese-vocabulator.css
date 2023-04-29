@@ -157,6 +157,9 @@ button[name="import"] {
 button[name="import"]:hover {
   background-color: #73E600;
 }
+#input_import_file {
+  display: none;
+}
 
 /* attribution */
 .notes {

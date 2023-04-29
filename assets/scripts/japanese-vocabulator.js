@@ -33,6 +33,9 @@ let list_entry = document.getElementById("entry_list");
 let button_remove = document.getElementById("remove_button");
 let button_register = document.getElementById("register_button");
 let button_export = document.getElementById("export_button");
+let button_import = document.getElementById("import_button");
+let input_import_file = document.getElementById("input_import_file");
+let file_import_uploaded;
 
 function initiate() {
   entry_registered = {};
@@ -56,8 +59,15 @@ function initiate() {
   });
   button_remove.disabled = true;
   button_remove.addEventListener("click", removeEntry, false);
-  button_register.addEventListener("click", registerEntry, false);
+  button_register.addEventListener("click", ()=>{
+    entry_registered.word = input_word.value;
+    entry_registered.furigana = input_furigana.value;
+    entry_registered.type = input_type.value;
+    entry_registered.meaning = input_meaning.value;
+    registerEntry(entry_registered);
+  }, false);
   button_export.addEventListener("click", exportEntries, false);
+  button_import.addEventListener("click", importEntries, false);
   return;
 }
 
@@ -70,42 +80,42 @@ function resetInput() {
   return;
 }
 
-function validateInput() {
+function validateInput(object_entry) {
   document.querySelectorAll("label").forEach((e) => {
     e.classList.remove("error");
   });
   switch (true) {
-    case ( input_word.value == null || input_word.value == "" ):
+    case ( object_entry.word == null || object_entry.word == "" ):
       alert("単語を入力してください。");
       input_word.focus();
       document.querySelector("label[for='" + input_word.id + "']").classList.add("error");
       return false;
-    case ( !/[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf\u3400-\u4dbf]/.test(input_word.value) ):
+    case ( !/[\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf\u3400-\u4dbf]/.test(object_entry.word) ):
       alert("単語のフィールドに日本語だけ入力してください。");
       input_word.focus();
       document.querySelector("label[for='" + input_word.id + "']").classList.add("error");
       return false;
-    case ( /^\s+$/.test(input_word.value) ):
+    case ( /^\s+$/.test(object_entry.word) ):
       alert("単語のフィールドにスペースだけ入力しないでください。");
       input_event.focus();
       document.querySelector("label[for='" + input_word.id + "']").classList.add("error");
       return false;
-    case ( input_furigana.value == null || input_furigana.value == "" ):
+    case ( object_entry.furigana == null || object_entry.furigana == "" ):
       alert("振り仮名を入力してください。");
       input_furigana.focus();
       document.querySelector("label[for='" + input_furigana.id + "']").classList.add("error");
       return false;
-    case ( !/[\u3040-\u309f\u30a0-\u30ff]/.test(input_furigana.value) ):
+    case ( !/[\u3040-\u309f\u30a0-\u30ff]/.test(object_entry.furigana) ):
       alert("振り仮名のフィールドに仮名だけ入力してください。");
       input_furigana.focus();
       document.querySelector("label[for='" + input_furigana.id + "']").classList.add("error");
       return false;
-    case ( input_type.value == null || input_type.value == "" ):
+    case ( object_entry.type == null || object_entry.type == "" ):
       alert("品詞を選んでください。");
       input_type.focus();
       document.querySelector("label[for='" + input_type.id + "']").classList.add("error");
       return false;
-    case ( input_meaning.value == null || input_meaning.value == "" ):
+    case ( object_entry.meaning == null || object_entry.meaning == "" ):
       alert("単語の意味を入力してください。");
       input_meaning.focus();
       document.querySelector("label[for='" + input_meaning.id + "']").classList.add("error");
@@ -115,18 +125,13 @@ function validateInput() {
   }
 }
 
-function registerEntry() {
-  if ( validateInput() == true ) {
+function registerEntry(object_entry) {
+  if ( validateInput(object_entry) == true ) {
     description.classList.add("hidden");
     details.classList.remove("hidden");
     list.classList.remove("hidden");
-    entry_registered = {};
-    entry_registered.word = input_word.value;
-    entry_registered.furigana = input_furigana.value;
-    entry_registered.type = input_type.value;
-    entry_registered.meaning = input_meaning.value;
-    displayEntry(entry_registered);
-    entries_registered.push(entry_registered);
+    displayEntry(object_entry);
+    entries_registered.push(object_entry);
     localStorage.setItem("japanese-vocabulator_entries_registered", JSON.stringify(entries_registered));
     clearDetails();
     resetInput();
@@ -230,19 +235,19 @@ function exportEntries() {
     let time_export = "";
     time_export += time.getFullYear().toString();
     time_export += ("0" + (time.getMonth() + 1)).slice(-2).toString();
-    time_export += time.getDate().toString();
-    time_export += time.getHours().toString();
-    time_export += time.getMinutes().toString();
-    time_export += time.getSeconds().toString();
+    time_export += ("0" + time.getDate()).slice(-2).toString();
+    time_export += ("0" + time.getHours()).slice(-2).toString();
+    time_export += ("0" + time.getMinutes()).slice(-2).toString();
+    time_export += ("0" + time.getSeconds()).slice(-2).toString();
     let content_export = "data:text/csv;charset=utf-8,";
     content_export += time_export + "\r\n";
-    content_export += "###\r\n";
+    content_export += "***\r\n";
     content_export += "単語,振り仮名,品詞,意味\r\n";
     entries_registered.forEach((e)=>{
       let row_export = e.word + "," + e.furigana + "," + types[e.type] + "," + e.meaning;
       content_export += row_export + "\r\n";
     });
-    content_export += "###\r\n";
+    content_export += "***\r\n";
     var URI_export = encodeURI(content_export);
     var link_export = document.createElement("a");
     link_export.setAttribute("href", URI_export);
@@ -259,8 +264,55 @@ function exportEntries() {
 function importEntries() {
   let import_confirmation = "インポートする前に、バックアップのため、単語リストをエクスポートしておいてください。";
   if ( confirm(import_confirmation) == true ) {
-    console.log("import begins.");
+    input_import_file.addEventListener("change", processImportFile, false);
+    input_import_file.click();
   }
+}
+
+function processImportFile() {
+  file_import_uploaded = input_import_file.files[0];
+  let reader = new FileReader();
+  reader.readAsText(file_import_uploaded);
+  reader.onload = ()=>{
+    let file_import_entries = reader.result.split("\r\n");
+    switch (true) {
+      case (file_import_uploaded.type != "text/csv"):
+        alert("許可されるファイルの形式はcsvだけです。");
+        file_import_uploaded.value = "";
+        return false;
+      case (!isNaN(file_import_entries[0])):
+        alert("アップロードされたファイルは内容が改竄されましたので、読み取られません。[0]");
+        file_import_uploaded.value = "";
+        return false;
+      case (file_import_entries[1] != "***"):
+        alert("アップロードされたファイルは内容が改竄されましたので、読み取られません。[1]");
+        file_import_uploaded.value = "";
+        return false;
+      case (file_import_entries[2][0] != "単" || file_import_entries[2][1] != "語"):
+        alert("アップロードされたファイルは内容が改竄されましたので、読み取られません。[2]");
+        file_import_uploaded.value = "";
+        return false;
+      case (file_import_entries[(file_import_entries.length - 2)] != "***"):
+        alert("アップロードされたファイルは内容が改竄されましたので、読み取られません。[-1]");
+        file_import_uploaded.value = "";
+        return false;
+      default:
+        file_import_entries.splice(0, 3);
+        file_import_entries.splice((file_import_entries.length - 2), 2);
+        break;
+    }
+    file_import_entries.forEach((entry)=>{
+      let entry_component = entry.split(",");
+      let entry_imported = {};
+      entry_imported.word = entry_component[0];
+      entry_imported.furigana = entry_component[1];
+      entry_imported.type = entry_component[2][0];
+      entry_imported.meaning = entry_component[3];
+      registerEntry(entry_imported);
+      file_import_uploaded.value = "";
+    });
+  }
+  return;
 }
 
 window.addEventListener("load", ()=>{
