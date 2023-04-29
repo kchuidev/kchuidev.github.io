@@ -236,11 +236,13 @@ function exportEntries() {
     time_export += time.getSeconds().toString();
     let content_export = "data:text/csv;charset=utf-8,";
     content_export += time_export + "\r\n";
+    content_export += "###\r\n";
     content_export += "単語,振り仮名,品詞,意味\r\n";
     entries_registered.forEach((e)=>{
       let row_export = e.word + "," + e.furigana + "," + types[e.type] + "," + e.meaning;
       content_export += row_export + "\r\n";
     });
+    content_export += "###\r\n";
     var URI_export = encodeURI(content_export);
     var link_export = document.createElement("a");
     link_export.setAttribute("href", URI_export);
@@ -251,6 +253,13 @@ function exportEntries() {
   } else {
     alert("登録されている単語はありません。");
     return false;
+  }
+}
+
+function importEntries() {
+  let import_confirmation = "インポートする前に、バックアップのため、単語リストをエクスポートしておいてください。";
+  if ( confirm(import_confirmation) == true ) {
+    console.log("import begins.");
   }
 }
 
