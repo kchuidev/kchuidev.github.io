@@ -337,7 +337,7 @@ function showInstructions() {
   let instructions_filter = "<img src='assets/images/japanese-vocabulator/instructions_filter.png' class='instructions_images'>単語リストのフィルターをかけって、特定の品詞に属する単語を表したり、隠したりできます。";
   let instructions_export = "<img src='assets/images/japanese-vocabulator/instructions_export.png' class='instructions_images'>エクスポートのボタンをクリックすると、全ての単語についての情報を含むcsvファイルがダウンロードできます。単語リストが空いている場合には、エクスポート機能が使用できません。バックアップのために、定期的に単語をエクスポートすることが勧められます。";
   let instructions_import = "<img src='assets/images/japanese-vocabulator/instructions_import.png' class='instructions_images'>インポートのボタンをクリックして、前にエクスポートしたcsvファイルを選ぶと、そのcsvファイルの単語がリストに加えられます。エクスポートしたcsvファイルが改竄されれば、エクスポート機能が使用できない可能性があります。";
-  let instructions_end = "<img src='assets/images/irasutoya/ojigi_animal_inu.png' class='instructions_images max-width_40percent'>使い方ガイドはここまでです。当アプリがみんなの力になれば嬉しいです。重ねてご利用ありがとうございます。";
+  let instructions_end = "<img src='assets/images/irasutoya/ojigi_animal_inu.png' class='instructions_images max-width_40percent'>使い方ガイドはここまでです。当アプリが皆さんの力になれば嬉しいです。重ねてご利用ありがとうございます。";
   let instructions_order = [instructions_introduction, instructions_input, instructions_input_error, instructions_list, instructions_stroke_order, instructions_filter, instructions_export, instructions_import, instructions_end];
 
   content_instructions.innerHTML = instructions_order[page_current];
