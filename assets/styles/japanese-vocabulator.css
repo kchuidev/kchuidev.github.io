@@ -129,9 +129,9 @@ label.error > input {
 }
 .button_containers {
   height: initial;
-  margin: 0 4px;
+  margin: 8px;
 }
-button[name="register"], button[name="export"], button[name="import"] {
+button[name="register"], button[name="export"], button[name="import"], button[name="instructions"] {
   width: 100%;
   height: 100%;
   /* max-height: 44px; */
@@ -139,11 +139,7 @@ button[name="register"], button[name="export"], button[name="import"] {
   user-select: none;
 }
 button[name="register"] {
-  margin-top: 24px;
-}
-#export_import_heading {
-  text-align: center;
-  margin-bottom: 0.2rem;
+  margin-top: 12px;
 }
 button[name="export"] {
   background-color: #00B3B3;
@@ -157,6 +153,12 @@ button[name="import"] {
 button[name="import"]:hover {
   background-color: #73E600;
 }
+button[name="instructions"] {
+  background-color: #B3B300;
+}
+button[name="instructions"]:hover {
+  background-color: #E6E600;
+}
 #input_import_file {
   display: none;
 }
@@ -164,4 +166,58 @@ button[name="import"]:hover {
 /* attribution */
 .notes {
   margin: 1rem 0;
+}
+
+/* instructions */
+#instructions_container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  opacity: 0.95;
+  z-index: 12;
+}
+#instructions_headings {
+  font-size: 1rem;
+  margin: 0.2rem;
+  text-align: center;
+}
+#instructions {
+  font-size: 0.9rem;
+  background-color: var(--colour-background-content);
+  color: #FFFFFF;
+  width: 50%;
+  max-height: 80vh;
+  overflow: auto;
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10vh;
+  z-index: 4;
+}
+.instructions_images {
+  display: block;
+  margin: auto;
+  max-width: 40%;
+  user-select: none;
+}
+.instructions_button_containers {
+  margin: 0.2rem;
+  text-align: right;
+}
+.instructions_buttons {
+  font-size: 0.9rem;
+  user-select: none;
+}
+@media ( max-width: 768px ) {
+  #instructions {
+    width: 90%;
+  }
+}
+body.instructions_shown {
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
 }

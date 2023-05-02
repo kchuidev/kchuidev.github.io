@@ -34,8 +34,10 @@ let button_remove = document.getElementById("remove_button");
 let button_register = document.getElementById("register_button");
 let button_export = document.getElementById("export_button");
 let button_import = document.getElementById("import_button");
+let button_instructions = document.getElementById("instructions_button");
 let input_import_file = document.getElementById("input_import_file");
 let file_import_uploaded;
+let instructions_shown;
 
 function initiate() {
   entry_registered = {};
@@ -48,9 +50,11 @@ function initiate() {
       displayEntry(e);
     });
     button_export.disabled = false;
+    instructions_shown = true;
   } else {
     entries_registered = [];
     button_export.disabled = true;
+    instructions_shown = false;
   }
   entries_stored_loaded = true;
   filter_checkboxes.forEach((c)=>{
@@ -68,6 +72,10 @@ function initiate() {
   }, false);
   button_export.addEventListener("click", exportEntries, false);
   button_import.addEventListener("click", importEntries, false);
+  button_instructions.addEventListener("click", showInstructions, false);
+  if ( instructions_shown == false ) {
+    showInstructions();
+  }
   return;
 }
 
@@ -252,6 +260,7 @@ function exportEntries() {
     var link_export = document.createElement("a");
     link_export.setAttribute("href", URI_export);
     link_export.setAttribute("download", "list_" + time_export);
+    link_export.classList.add("hidden");
     document.body.appendChild(link_export);
     link_export.click();
     return true;
@@ -262,11 +271,9 @@ function exportEntries() {
 }
 
 function importEntries() {
-  let import_confirmation = "インポートする前に、バックアップのため、単語リストをエクスポートしておいてください。";
-  if ( confirm(import_confirmation) == true ) {
-    input_import_file.addEventListener("change", processImportFile, false);
-    input_import_file.click();
-  }
+  input_import_file.addEventListener("change", processImportFile, false);
+  input_import_file.click();
+  return;
 }
 
 function processImportFile() {
@@ -312,6 +319,72 @@ function processImportFile() {
       file_import_uploaded.value = "";
     });
   }
+  return;
+}
+
+function showInstructions() {
+  var page_current = 0;
+  let container_instructions = document.getElementById("instructions_container");
+  let content_instructions = document.getElementById("instructions_content");
+  let button_next = document.getElementById("next_button");
+  let button_back = document.getElementById("back_button");
+  let button_dismiss = document.getElementById("dismiss_button");
+  let instructions_introduction = "<img src='assets/images/irasutoya/ojigi_animal_inu.png' class='instructions_images'>日本語ボキャブレーターのご利用ありがとうございます。当アプリは、語彙力を高めることを目指している日本語学習者向けのアプリです。当アプリを使って、単語をためたり、漢字の書き方を理解したりできます。これから、当アプリの使い方を紹介させていただきます。";
+  let instructions_input = "登録したい単語、その単語の振り仮名、品詞と意味をそれぞれのフィールドに入力して登録ボタンをクリックしてください。";
+  let instructions_input_error = "入力した情報が不具合なら、エラーメッセージが出て、そのフィールドは赤になります。その時、エラーメッセージの指示を従って情報を再入力してください。";
+  let instructions_list = "単語は登録してから、単語リストが生成します。リストの単語をクリックすると、その単語の情報と書き順が現れます。書き順の動画が終わったら、漢字や仮名をクリックすると、その漢字や仮名の動画が再生します。";
+  let instructions_filter = "単語リストのフィルターをかけって、特定の品詞に属する単語を表したり、隠したりできます。";
+  let instructions_export = "エクスポートのボタンをクリックすると、全ての単語についての情報を含むcsvファイルがダウンロードできます。単語リストが空いている場合には、エクスポート機能が使用できません。";
+  let instructions_import = "インポートのボタンをクリックして、前にエクスポートしたcsvファイルを選ぶと、そのcsvファイルの単語がリストに加えられます。エクスポートしたcsvファイルが改竄される場合には、エクスポート機能が使用できません。";
+  let instructions_end = "<img src='assets/images/irasutoya/ojigi_animal_inu.png' class='instructions_images'>使い方ガイドはここまでです。重ねて当アプリのご利用ありがとうございます。";
+  let instructions_order = [instructions_introduction, instructions_input, instructions_input_error, instructions_list, instructions_filter, instructions_export, instructions_import, instructions_end];
+
+  content_instructions.innerHTML = instructions_order[page_current];
+  function navigate(direction) {
+    if ( direction == "forwards" ) {
+      page_current = page_current + 1;
+    } else if ( direction == "backwards" ) {
+      page_current = page_current - 1;
+    }
+    content_instructions.innerHTML = instructions_order[page_current];
+    switch (true) {
+      case ( page_current == (instructions_order.length - 1) ):
+        button_next.classList.add("hidden");
+        button_back.classList.remove("hidden");
+        button_dismiss.classList.remove("hidden");
+        break;
+      case ( page_current == 0 ):
+        button_next.classList.remove("hidden");
+        button_back.classList.add("hidden");
+        button_dismiss.classList.add("hidden");
+        break;
+      default:
+        button_next.classList.remove("hidden");
+        button_back.classList.remove("hidden");
+        button_dismiss.classList.add("hidden");
+        break;
+    }
+    return;
+  }
+  button_next.addEventListener("click", ()=>{
+    navigate("forwards");
+    return;
+  }, false);
+  button_back.addEventListener("click", ()=>{
+    navigate("backwards");
+    return;
+  }, false);
+  button_dismiss.addEventListener("click", ()=>{
+    instructions_shown = true;
+    container_instructions.classList.add("hidden");
+    document.body.classList.remove("instructions_shown");
+    return;
+  }, false);
+  button_next.classList.remove("hidden");
+  button_back.classList.add("hidden");
+  button_dismiss.classList.add("hidden");
+  document.body.classList.add("instructions_shown");
+  container_instructions.classList.remove("hidden");
   return;
 }
 
