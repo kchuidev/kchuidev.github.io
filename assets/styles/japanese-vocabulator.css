@@ -184,7 +184,7 @@ button[name="instructions"]:hover {
   top: 0;
   left: 0;
   background-color: #FFFFFF;
-  opacity: 0.95;
+  opacity: 1;
   z-index: 12;
 }
 #instructions_headings {
