@@ -25,6 +25,7 @@
 }
 /* kaki-jun */
 #display_order {
+  position: relative;
   text-align: center;
   background-color: #FFFFFF;
 }
@@ -39,6 +40,13 @@ kaki-jun {
 #display_order svg g text {
   stroke: #666666;
   stroke-width: 1;
+}
+#display_order_image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 2rem;
+  user-select: none;
 }
 #remove_button_container {
   margin: 0.6rem 0;

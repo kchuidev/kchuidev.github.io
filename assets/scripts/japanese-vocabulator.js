@@ -330,12 +330,12 @@ function showInstructions() {
   let button_back = document.getElementById("back_button");
   let button_dismiss = document.getElementById("dismiss_button");
   let instructions_introduction = "<img src='assets/images/irasutoya/ojigi_animal_inu.png' class='instructions_images'>日本語ボキャブレーターのご利用ありがとうございます。当アプリは、語彙力を高めることを目指している日本語学習者向けのアプリです。当アプリを使って、単語をためたり、漢字の書き方を理解したりできます。これから、当アプリの使い方を紹介させていただきます。";
-  let instructions_input = "登録したい単語、その単語の振り仮名、品詞と意味をそれぞれのフィールドに入力して登録ボタンをクリックしてください。";
-  let instructions_input_error = "入力した情報が不具合なら、エラーメッセージが出て、そのフィールドは赤になります。その時、エラーメッセージの指示を従って情報を再入力してください。";
+  let instructions_input = "<img src='assets/images/japanese-vocabulator/instructions_input.png' class='instructions_images'>登録したい単語、その単語の振り仮名、品詞と意味をそれぞれのフィールドに入力して登録ボタンをクリックしてください。";
+  let instructions_input_error = "<img src='assets/images/japanese-vocabulator/instructions_input_error.png' class='instructions_images'>入力した情報が不具合なら、エラーメッセージが出て、そのフィールドは赤になります。その時、エラーメッセージの指示を従って情報を再入力してください。";
   let instructions_list = "単語は登録してから、単語リストが生成します。リストの単語をクリックすると、その単語の情報と書き順が現れます。書き順の動画が終わったら、漢字や仮名をクリックすると、その漢字や仮名の動画が再生します。";
-  let instructions_filter = "単語リストのフィルターをかけって、特定の品詞に属する単語を表したり、隠したりできます。";
-  let instructions_export = "エクスポートのボタンをクリックすると、全ての単語についての情報を含むcsvファイルがダウンロードできます。単語リストが空いている場合には、エクスポート機能が使用できません。";
-  let instructions_import = "インポートのボタンをクリックして、前にエクスポートしたcsvファイルを選ぶと、そのcsvファイルの単語がリストに加えられます。エクスポートしたcsvファイルが改竄される場合には、エクスポート機能が使用できません。";
+  let instructions_filter = "<img src='assets/images/japanese-vocabulator/instructions_filter.png' class='instructions_images'>単語リストのフィルターをかけって、特定の品詞に属する単語を表したり、隠したりできます。";
+  let instructions_export = "<img src='assets/images/japanese-vocabulator/instructions_export.png' class='instructions_images'>エクスポートのボタンをクリックすると、全ての単語についての情報を含むcsvファイルがダウンロードできます。単語リストが空いている場合には、エクスポート機能が使用できません。";
+  let instructions_import = "<img src='assets/images/japanese-vocabulator/instructions_import.png' class='instructions_images'>インポートのボタンをクリックして、前にエクスポートしたcsvファイルを選ぶと、そのcsvファイルの単語がリストに加えられます。エクスポートしたcsvファイルが改竄される場合には、エクスポート機能が使用できません。";
   let instructions_end = "<img src='assets/images/irasutoya/ojigi_animal_inu.png' class='instructions_images'>使い方ガイドはここまでです。重ねて当アプリのご利用ありがとうございます。";
   let instructions_order = [instructions_introduction, instructions_input, instructions_input_error, instructions_list, instructions_filter, instructions_export, instructions_import, instructions_end];
 
