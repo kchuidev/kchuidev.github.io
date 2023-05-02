@@ -208,8 +208,10 @@ button[name="instructions"]:hover {
 .instructions_images {
   display: block;
   margin: auto;
-  max-width: 40%;
   user-select: none;
+}
+.max-width_40percent {
+  max-width: 40%;
 }
 .instructions_button_containers {
   margin: 0.2rem;
