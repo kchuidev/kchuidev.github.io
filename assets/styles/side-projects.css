@@ -3,15 +3,6 @@
   side-projects.css
 */
 
-.card_containers {
-  min-height: 6rem;
-  text-align: center;
-  margin: 0.4rem;
-  background-color: #000000;
-}
-.cards {
-  color: #FFFFFF;
-}
 .side-projects_titles {
   font-size: 1.2rem;
   font-family: var(--font-family-medium);
