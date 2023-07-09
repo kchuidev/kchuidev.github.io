@@ -56,7 +56,11 @@ function assignMembers() {
                   cards_back[i].dataset.member = members_trimmed_reordered_once[i];
                   break;
               }
-              cards_back[i].innerHTML = "<img src='/assets/images/who-is-this/avatars/" + members_trimmed_reordered_once[i] + ".JPG' class='avatars'>";
+              // cards_back[i].innerHTML = "<img src='/assets/images/who-is-this/avatars/" + members_trimmed_reordered_once[i] + ".JPG' class='avatars'>";
+              let avatar_image_added = document.createElement("img");
+              avatar_image_added.setAttribute("src", "/assets/images/who-is-this/avatars/" + members_trimmed_reordered_once[i] + ".JPG");
+              avatar_image_added.classList.add("avatars");
+              cards_back[i].appendChild(avatar_image_added);
               cards_back[i].classList.add("assigned");
             }
           }
@@ -70,31 +74,59 @@ function assignMembers() {
                   switch (members_trimmed_reordered_twice[index_members_trimmed_reordered_twice]) {
                     case("gan"):
                       cards_back[i].dataset.member = "ガン";
-                      cards_back[i].innerHTML = "<p class='names'>ガン</p>";
+                      //cards_back[i].innerHTML = "<p class='names'>ガン</p>";
+                      var name_added = document.createElement("p");
+                      name_added.innerText = "ガン";
+                      name_added.classList.add("names");
+                      cards_back[i].appendChild(name_added);
                       break;
                     case("pamu"):
                       cards_back[i].dataset.member = "パーム";
-                      cards_back[i].innerHTML = "<p class='names'>パーム</p>";
+                      //cards_back[i].innerHTML = "<p class='names'>パーム</p>";
+                      var name_added = document.createElement("p");
+                      name_added.innerText = "パーム";
+                      name_added.classList.add("names");
+                      cards_back[i].appendChild(name_added);
                       break;
                     case("bita"):
                       cards_back[i].dataset.member = "ビター";
-                      cards_back[i].innerHTML = "<p class='names'>ビター</p>";
+                      //cards_back[i].innerHTML = "<p class='names'>ビター</p>";
+                      var name_added = document.createElement("p");
+                      name_added.innerText = "ビター";
+                      name_added.classList.add("names");
+                      cards_back[i].appendChild(name_added);
                       break;
                     case("putra"):
                       cards_back[i].dataset.member = "プトラ";
-                      cards_back[i].innerHTML = "<p class='names'>プトラ</p>";
+                      //cards_back[i].innerHTML = "<p class='names'>プトラ</p>";
+                      var name_added = document.createElement("p");
+                      name_added.innerText = "プトラ";
+                      name_added.classList.add("names");
+                      cards_back[i].appendChild(name_added);
                       break;
                     case("bosen"):
                       cards_back[i].dataset.member = "ボースン";
-                      cards_back[i].innerHTML = "<p class='names'>ボースン</p>";
+                      //cards_back[i].innerHTML = "<p class='names'>ボースン</p>";
+                      var name_added = document.createElement("p");
+                      name_added.innerText = "ボースン";
+                      name_added.classList.add("names");
+                      cards_back[i].appendChild(name_added);
                       break;
                     case("mingyu"):
                       cards_back[i].dataset.member = "ミンギュ";
-                      cards_back[i].innerHTML = "<p class='names'>ミンギュ</p>";
+                      //cards_back[i].innerHTML = "<p class='names'>ミンギュ</p>";
+                      var name_added = document.createElement("p");
+                      name_added.innerText = "ミンギュ";
+                      name_added.classList.add("names");
+                      cards_back[i].appendChild(name_added);
                       break;
                     default:
                       cards_back[i].dataset.member = members_trimmed_reordered_twice[index_members_trimmed_reordered_twice];
-                      cards_back[i].innerHTML = "<p class='names'>" + members_trimmed_reordered_twice[index_members_trimmed_reordered_twice] + "</p>";
+                      //cards_back[i].innerHTML = "<p class='names'>" + members_trimmed_reordered_twice[index_members_trimmed_reordered_twice] + "</p>";
+                      var name_added = document.createElement("p");
+                      name_added.innerText = members_trimmed_reordered_twice[index_members_trimmed_reordered_twice];
+                      name_added.classList.add("names");
+                      cards_back[i].appendChild(name_added);
                       break;
                   }
                   cards_back[i].classList.add("assigned");
@@ -171,7 +203,7 @@ async function checkVictory() {
     let message_victory = "おめでとう！\nかかった時間： " + new Date(time_used).toISOString().slice(11, 19);
     let message_victory_display = setTimeout( ()=>{
       alert(message_victory);
-    } , 2000);
+    } , 1000);
     await resetGame();
   }
   return;
@@ -185,7 +217,11 @@ function verifyAnswer(a,b) {
     cards_cleared += 2;
     document.getElementById(a).classList.add("cleared");
     document.getElementById(b).classList.add("cleared");
-    pop_up.innerHTML = "<p id='pop-up_text'>" + answer_a + "</p>";
+    //pop_up.innerHTML = "<p id='pop-up_text'>" + answer_a + "</p>";
+    var pop_up_text_added = document.createElement("p");
+    pop_up_text_added.innerText = answer_a;
+    pop_up_text_added.setAttribute("id", "pop-up_text");
+    pop_up.appendChild(pop_up_text_added);
     pop_up.classList.remove("hidden");
     let pop_up_removal = setTimeout( ()=>{
       pop_up.classList.add("hidden");
