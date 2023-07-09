@@ -6,7 +6,7 @@
 let cards = document.querySelectorAll(".cards");
 let cards_front = document.querySelectorAll(".cards_front");
 let cards_back = document.querySelectorAll(".cards_back");
-let members = ["アニー", "いつき", "いのり", "ウ", "かおる", "カク", "ガン", "ケーシー", "シャー", "シュ", "ナン", "ネム", "パーム", "ビター", "プトラ", "ボースン", "まさゆき", "マチュ", "マヤ", "ミンギュ", "先生"];
+let members = ["アニー", "いつき", "いのり", "ウ", "かおる", "カク", "gan", "ケーシー", "シャー", "シュ", "ナン", "ネム", "pamu", "bita", "putra", "bosen", "まさゆき", "マチュ", "マヤ", "mingyu", "先生"];
 let attempt;
 let cards_cleared;
 let time_used;
@@ -33,7 +33,29 @@ function assignMembers() {
         (members_trimmed_reordered_once)=>{
           for (let i = 0; i < 8; i++) {
             if ( !cards_back[i].classList.contains("assigned") ) {
-              cards_back[i].dataset.member = members_trimmed_reordered_once[i];
+              switch (members_trimmed_reordered_once[i]) {
+                case("gan"):
+                  cards_back[i].dataset.member = "ガン";
+                  break;
+                case("pamu"):
+                  cards_back[i].dataset.member = "パーム";
+                  break;
+                case("bita"):
+                  cards_back[i].dataset.member = "ビター";
+                  break;
+                case("putra"):
+                  cards_back[i].dataset.member = "プトラ";
+                  break;
+                case("bosen"):
+                  cards_back[i].dataset.member = "ボースン";
+                  break;
+                case("mingyu"):
+                  cards_back[i].dataset.member = "ミンギュ";
+                  break;
+                default:
+                  cards_back[i].dataset.member = members_trimmed_reordered_once[i];
+                  break;
+              }
               cards_back[i].innerHTML = "<img src='/assets/images/who-is-this/avatars/" + members_trimmed_reordered_once[i] + ".JPG' class='avatars'>";
               cards_back[i].classList.add("assigned");
             }
@@ -44,7 +66,37 @@ function assignMembers() {
                 let index_members_trimmed_reordered_twice = Number( i - 8 );
                 if ( !cards_back[i].classList.contains("assigned") ) {
                   cards_back[i].dataset.member = members_trimmed_reordered_twice[index_members_trimmed_reordered_twice];
-                  cards_back[i].innerHTML = "<p class='names'>" + members_trimmed_reordered_twice[index_members_trimmed_reordered_twice] + "</p>";
+
+                  switch (members_trimmed_reordered_twice[index_members_trimmed_reordered_twice]) {
+                    case("gan"):
+                      cards_back[i].dataset.member = "ガン";
+                      cards_back[i].innerHTML = "<p class='names'>ガン</p>";
+                      break;
+                    case("pamu"):
+                      cards_back[i].dataset.member = "パーム";
+                      cards_back[i].innerHTML = "<p class='names'>パーム</p>";
+                      break;
+                    case("bita"):
+                      cards_back[i].dataset.member = "ビター";
+                      cards_back[i].innerHTML = "<p class='names'>ビター</p>";
+                      break;
+                    case("putra"):
+                      cards_back[i].dataset.member = "プトラ";
+                      cards_back[i].innerHTML = "<p class='names'>プトラ</p>";
+                      break;
+                    case("bosen"):
+                      cards_back[i].dataset.member = "ボースン";
+                      cards_back[i].innerHTML = "<p class='names'>ボースン</p>";
+                      break;
+                    case("mingyu"):
+                      cards_back[i].dataset.member = "ミンギュ";
+                      cards_back[i].innerHTML = "<p class='names'>ミンギュ</p>";
+                      break;
+                    default:
+                      cards_back[i].dataset.member = members_trimmed_reordered_twice[index_members_trimmed_reordered_twice];
+                      cards_back[i].innerHTML = "<p class='names'>" + members_trimmed_reordered_twice[index_members_trimmed_reordered_twice] + "</p>";
+                      break;
+                  }
                   cards_back[i].classList.add("assigned");
                 }
               }
