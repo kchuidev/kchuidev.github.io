@@ -6,6 +6,7 @@
 let cards = document.querySelectorAll(".cards");
 let cards_front = document.querySelectorAll(".cards_front");
 let cards_back = document.querySelectorAll(".cards_back");
+let pop_up = document.querySelector("#pop-up");
 let members = ["アニー", "いつき", "いのり", "ウ", "かおる", "カク", "gan", "ケーシー", "シャー", "シュ", "ナン", "ネム", "pamu", "bita", "putra", "bosen", "まさゆき", "マチュ", "マヤ", "mingyu", "せんせい"];
 let attempt;
 let cards_cleared;
@@ -28,7 +29,6 @@ function assignMembers() {
   reorderArray(members).then(
     (members_reordered)=>{
       let members_trimmed = members_reordered.slice(0, 8);
-      console.log(members_trimmed);
       reorderArray(members_trimmed).then(
         (members_trimmed_reordered_once)=>{
           for (let i = 0; i < 8; i++) {
@@ -183,6 +183,13 @@ function verifyAnswer(a,b) {
     cards_cleared += 2;
     document.getElementById(a).classList.add("cleared");
     document.getElementById(b).classList.add("cleared");
+    pop_up.innerHTML = "<p id='pop-up_text'>" + answer_a + "</p>";
+    pop_up.classList.remove("hidden");
+    let removal_pop_up = setTimeout( ()=>{
+      pop_up.classList.add("hidden");
+    } , 1000);
+    let audio_member_name = new Audio("/assets/audio/who-is-this/" + answer_a + ".mp3");
+    audio_member_name.play();
     checkVictory();
   }
   card_chosen_a = undefined;
