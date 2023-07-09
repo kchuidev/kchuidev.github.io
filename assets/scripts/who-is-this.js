@@ -169,7 +169,9 @@ async function checkVictory() {
     clearInterval(time_passing);
     record_this = new Date().getTime() + "_" + time_used + "_" + attempt;
     let message_victory = "おめでとう！\nかかった時間： " + new Date(time_used).toISOString().slice(11, 19);
-    alert(message_victory);
+    let message_victory_display = setTimeout( ()=>{
+      alert(message_victory);
+    } , 2000);
     await resetGame();
   }
   return;
@@ -185,10 +187,9 @@ function verifyAnswer(a,b) {
     document.getElementById(b).classList.add("cleared");
     pop_up.innerHTML = "<p id='pop-up_text'>" + answer_a + "</p>";
     pop_up.classList.remove("hidden");
-    let removal_pop_up = setTimeout( ()=>{
+    let pop_up_removal = setTimeout( ()=>{
       pop_up.classList.add("hidden");
     } , 1000);
-    
     switch (answer_a) {
       case("ガン"):
         var member_name = "gan";

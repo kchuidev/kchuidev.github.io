@@ -27,6 +27,7 @@ body {
 #content_container h4 {
   font-size: 3rem;
   font-weight: 400;
+  color: #4290D9;
 }
 #who-is-this #pop-up {
   z-index: 2;
