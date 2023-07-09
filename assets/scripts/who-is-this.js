@@ -188,7 +188,31 @@ function verifyAnswer(a,b) {
     let removal_pop_up = setTimeout( ()=>{
       pop_up.classList.add("hidden");
     } , 1000);
-    let audio_member_name = new Audio("/assets/audio/who-is-this/" + answer_a + ".mp3");
+    
+    switch (answer_a) {
+      case("ガン"):
+        var member_name = "gan";
+        break;
+      case("パーム"):
+        var member_name = "pamu";
+        break;
+      case("ビター"):
+        var member_name = "bita";
+        break;
+      case("プトラ"):
+      var member_name = "putra";
+        break;
+      case("ボースン"):
+        var member_name = "bosen";
+        break;
+      case("ミンギュ"):
+        var member_name = "mingyu";
+        break;
+      default:
+        var member_name = answer_a;
+        break;
+    }
+    let audio_member_name = new Audio("/assets/audio/who-is-this/" + member_name + ".mp3");
     audio_member_name.play();
     checkVictory();
   }
