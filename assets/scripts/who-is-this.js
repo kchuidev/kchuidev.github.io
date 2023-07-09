@@ -7,6 +7,7 @@ let cards = document.querySelectorAll(".cards");
 let cards_front = document.querySelectorAll(".cards_front");
 let cards_back = document.querySelectorAll(".cards_back");
 let pop_up = document.querySelector("#pop-up");
+let pop_up_text = document.querySelector("#pop-up_text");
 let members = ["アニー", "いつき", "いのり", "ウ", "かおる", "カク", "gan", "ケーシー", "シャー", "シュ", "ナン", "ネム", "pamu", "bita", "putra", "bosen", "まさゆき", "マチュ", "マヤ", "mingyu", "せんせい"];
 let attempt;
 let cards_cleared;
@@ -168,6 +169,7 @@ async function resetGame() {
     e.classList.remove("deactivated");
   });
   document.querySelectorAll(".cards_back").forEach((e)=>{
+    e.innerHTML = "";
     e.classList.remove("assigned");
   });
   await assignMembers();
@@ -203,7 +205,7 @@ async function checkVictory() {
     let message_victory = "おめでとう！\nかかった時間： " + new Date(time_used).toISOString().slice(11, 19);
     let message_victory_display = setTimeout( ()=>{
       alert(message_victory);
-    } , 1000);
+    } , 500);
     await resetGame();
   }
   return;
@@ -217,11 +219,7 @@ function verifyAnswer(a,b) {
     cards_cleared += 2;
     document.getElementById(a).classList.add("cleared");
     document.getElementById(b).classList.add("cleared");
-    //pop_up.innerHTML = "<p id='pop-up_text'>" + answer_a + "</p>";
-    var pop_up_text_added = document.createElement("p");
-    pop_up_text_added.innerText = answer_a;
-    pop_up_text_added.setAttribute("id", "pop-up_text");
-    pop_up.appendChild(pop_up_text_added);
+    pop_up_text.innerText = answer_a;
     pop_up.classList.remove("hidden");
     let pop_up_removal = setTimeout( ()=>{
       pop_up.classList.add("hidden");
