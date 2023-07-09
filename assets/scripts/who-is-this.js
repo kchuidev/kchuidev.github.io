@@ -6,7 +6,7 @@
 let cards = document.querySelectorAll(".cards");
 let cards_front = document.querySelectorAll(".cards_front");
 let cards_back = document.querySelectorAll(".cards_back");
-let members = ["アニー", "いつき", "いのり", "ウ", "かおる", "カク", "gan", "ケーシー", "シャー", "シュ", "ナン", "ネム", "pamu", "bita", "putra", "bosen", "まさゆき", "マチュ", "マヤ", "mingyu", "先生"];
+let members = ["アニー", "いつき", "いのり", "ウ", "かおる", "カク", "gan", "ケーシー", "シャー", "シュ", "ナン", "ネム", "pamu", "bita", "putra", "bosen", "まさゆき", "マチュ", "マヤ", "mingyu", "せんせい"];
 let attempt;
 let cards_cleared;
 let time_used;

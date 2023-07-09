@@ -16,6 +16,10 @@ body {
 #content_container {
   font-family: 'Cherry Bomb One', sans-serif;
 }
+#content_container h4 {
+  font-size: 3rem;
+  font-weight: 400;
+}
 #who-is-this #cards_container {
   max-width: 800px;
   margin: auto;
@@ -58,9 +62,9 @@ body {
 #who-is-this .cards_front {
   background-color: #D8B15E;
   color: #D23192;
-  font-size: 24px;
+  font-size: 3rem;
   font-weight: 700;
-  padding-top: 40%;
+  padding-top: 20%;
 }
 #who-is-this .cards_back {
   background-color: #FFFFFF;
