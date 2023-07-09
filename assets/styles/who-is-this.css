@@ -1,0 +1,74 @@
+/*
+  kchui.dev
+  who-is-this.css
+*/
+
+@font-face {
+  font-family: 'Cherry Bomb One';
+  src:
+    url(/assets/fonts/Cherry_Bomb_One/CherryBombOne-Regular.tff)
+    format("opentype");
+}
+
+body {
+  background-color: #22484B;
+}
+#content_container {
+  font-family: 'Cherry Bomb One', sans-serif;
+}
+#who-is-this #cards_container {
+  max-width: 800px;
+  margin: auto;
+}
+#who-is-this .cards {
+  width: 100%;
+  max-width: 80px;
+  height: 100px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  perspective: 1000px;
+}
+#who-is-this .cards_sides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+#who-is-this .cards:hover .cards_sides {
+  transform: rotateY(40deg);
+}
+#who-is-this .cards.chosen .cards_sides, #who-is-this .cards.cleared .cards_sides {
+  transform: rotateY(180deg);
+}
+#who-is-this .cards.deactivated {
+  cursor: not-allowed;
+}
+#who-is-this .cards_front, #who-is-this .cards_back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  text-align: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+#who-is-this .cards_front {
+  background-color: #D8B15E;
+  color: #D23192;
+  font-size: 24px;
+  font-weight: 700;
+  padding-top: 40%;
+}
+#who-is-this .cards_back {
+  background-color: #FFFFFF;
+  padding-top: 10%;
+  transform: rotateY(180deg);
+}
+#who-is-this .cards_back .names {
+  font-size: 20px;
+  color: #4290D9;
+  margin-top: 24px;
+}
