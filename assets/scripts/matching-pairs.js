@@ -60,7 +60,7 @@ function initiate() {
         cards[i].classList.add("chosen");
         if ( card_chosen_a == undefined && card_chosen_b == undefined ) {
           card_chosen_a = cards[i].id;
-        } else if ( card_chosen_a != undefined && card_chosen_b == undefined ) {
+        } else if ( card_chosen_a != undefined && card_chosen_b == undefined && cards[i].id != card_chosen_a ) {
           card_chosen_b = cards[i].id;
           document.querySelectorAll(".cards").forEach((e)=>{
             e.classList.add("deactivated");
@@ -87,6 +87,7 @@ function checkVictory() {
     alert(message_victory);
     resetGame();
   }
+  return;
 }
 
 function compareRecord(record_this) {
@@ -127,6 +128,7 @@ function verifyAnswer(a,b) {
   return;
 }
 
-resetGame();
-
-initiate();
+window.addEventListener("load", ()=>{
+  resetGame();
+  initiate();
+}, false);
