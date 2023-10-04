@@ -61,6 +61,23 @@ async function analyseURL() {
   return Promise.resolve(url_analysed);
 }
 
+function explainScheme(scheme) {
+  let explanation_scheme;
+  switch(scheme) {
+    case("http"):
+      explanation_scheme = "<i>Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmitting hypermedia documents, such as HTML.</i><br><br><a class='external_links' href='https://en.wikipedia.org/wiki/HTTP' target='_blank'>HTTP on Wikipedia</a>";
+      return explanation_scheme;
+    case("https"):
+      explanation_scheme = "<i>HyperText Transfer Protocol Secure</b> (HTTPS) is an encrypted version of the HTTP protocol. It uses TLS to encrypt all communication between a client and a server. This secure connection allows clients to safely exchange sensitive data with a server, such as when performing banking activities or online shopping.</i><br><br><a class='external_links' href='https://en.wikipedia.org/wiki/HTTPS' target='_blank'>HTTPS on Wikipedia</a>";
+      return explanation_scheme;
+    case("ftp"):
+      explanation_scheme = "<i>File Transfer Protocol (FTP) is an insecure protocol for transferring files from one host to another over the Internet.</i><br><br><a class='external_links' href='https://en.wikipedia.org/wiki/File_Transfer_Protocol' target='_blank'>FTP on Wikipedia</a>";
+      return explanation_scheme;
+    default:
+      return explanation_scheme;
+  }
+}
+
 function displayResult(url_analysed) {
 
   reset();
@@ -80,6 +97,9 @@ function displayResult(url_analysed) {
   let display_url_scheme_cell_value = display_url_scheme_row.insertCell(-1);
   display_url_scheme_cell_value.classList.add("values");
   display_url_scheme_cell_value.innerHTML = url_analysed.scheme;
+  if ( explainScheme(url_analysed.scheme) ) {
+    display_url_scheme_cell_value.innerHTML += "<br><br>" + explainScheme(url_analysed.scheme);
+  }
 
   if ( url_analysed.username ) {
     let display_url_username = document.createElement("span");
@@ -113,18 +133,20 @@ function displayResult(url_analysed) {
     display_url_password_cell_value.innerHTML = url_analysed.password;
   }
 
-  let display_url_host = document.createElement("span");
-  display_url_host.setAttribute("id", "display_url_host");
-  display_url_host.innerHTML = url_analysed.host;
-  display_url_analysed.appendChild(display_url_host);
-
-  let display_url_host_row = table_result.insertRow(-1);
-  let display_url_host_cell_label = display_url_host_row.insertCell(-1);
-  display_url_host_cell_label.classList.add("labels");
-  display_url_host_cell_label.innerHTML = "host";
-  let display_url_host_cell_value = display_url_host_row.insertCell(-1);
-  display_url_host_cell_value.classList.add("values");
-  display_url_host_cell_value.innerHTML = url_analysed.host;
+  if ( url_analysed.host ) {
+    let display_url_host = document.createElement("span");
+    display_url_host.setAttribute("id", "display_url_host");
+    display_url_host.innerHTML = url_analysed.host;
+    display_url_analysed.appendChild(display_url_host);
+  
+    let display_url_host_row = table_result.insertRow(-1);
+    let display_url_host_cell_label = display_url_host_row.insertCell(-1);
+    display_url_host_cell_label.classList.add("labels");
+    display_url_host_cell_label.innerHTML = "host";
+    let display_url_host_cell_value = display_url_host_row.insertCell(-1);
+    display_url_host_cell_value.classList.add("values");
+    display_url_host_cell_value.innerHTML = url_analysed.host;
+  }
 
   if ( url_analysed.port ) {
     display_url_analysed.innerHTML += ":";
