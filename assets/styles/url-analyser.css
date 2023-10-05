@@ -68,7 +68,7 @@ button[name="analyse"] {
   margin-bottom: 0.4rem;
 }
 #result_table tr td {
-  padding: 4px;
+  padding: 6px;
   vertical-align: top;
   border: 1px solid var(--colour-table-border);
 }
@@ -106,8 +106,12 @@ button[name="analyse"] {
   color: #FFFFFF;
   z-index: 2;
 }
-#display_url_scheme:hover::before {
+#display_url_scheme:hover::before, #display_url_scheme:active::before {
   display: initial;
+}
+.scheme_explanations {
+  display: inline-block;
+  margin: 2px;
 }
 #display_url_username {
   border-color: #007399;
@@ -124,7 +128,7 @@ button[name="analyse"] {
   color: #FFFFFF;
   z-index: 2;
 }
-#display_url_username:hover::before {
+#display_url_username:hover::before, #display_url_username:active::before {
   display: initial;
 }
 #display_url_password {
@@ -142,7 +146,7 @@ button[name="analyse"] {
   color: #FFFFFF;
   z-index: 2;
 }
-#display_url_password:hover::before {
+#display_url_password:hover::before, #display_url_password:active::before {
   display: initial;
 }
 #display_url_host {
@@ -160,7 +164,7 @@ button[name="analyse"] {
   color: #FFFFFF;
   z-index: 2;
 }
-#display_url_host:hover::before {
+#display_url_host:hover::before, #display_url_host:active::before {
   display: initial;
 }
 #display_url_port {
@@ -178,7 +182,7 @@ button[name="analyse"] {
   color: #FFFFFF;
   z-index: 2;
 }
-#display_url_port:hover::before {
+#display_url_port:hover::before, #display_url_port:active::before {
   display: initial;
 }
 #display_url_path {
@@ -196,7 +200,7 @@ button[name="analyse"] {
   color: #FFFFFF;
   z-index: 2;
 }
-#display_url_path:hover::before {
+#display_url_path:hover::before, #display_url_path:active::before {
   display: initial;
 }
 #display_url_query_string {
@@ -214,7 +218,7 @@ button[name="analyse"] {
   color: #FFFFFF;
   z-index: 2;
 }
-#display_url_query_string:hover::before {
+#display_url_query_string:hover::before, #display_url_query_string:active::before {
   display: initial;
 }
 #display_url_fragment {
@@ -232,6 +236,30 @@ button[name="analyse"] {
   color: #FFFFFF;
   z-index: 2;
 }
-#display_url_fragment:hover::before {
+#display_url_fragment:hover::before, #display_url_fragment:active::before {
   display: initial;
+}
+#url_scheme_cell_value {
+  box-shadow: inset 0 -4px 0 #990000;
+}
+#url_username_cell_value {
+  box-shadow: inset 0 -4px 0 #007399;
+}
+#url_password_cell_value {
+  box-shadow: inset 0 -4px 0 #009973;
+}
+#url_host_cell_value {
+  box-shadow: inset 0 -4px 0 #999900;
+}
+#url_port_cell_value {
+  box-shadow: inset 0 -4px 0 #008040;
+}
+#url_path_cell_value {
+  box-shadow: inset 0 -4px 0 #994D00;
+}
+#url_query_string_cell_value {
+  box-shadow: inset 0 -4px 0 #800060;
+}
+#url_fragment_cell_value {
+  box-shadow: inset 0 -4px 0 #595959;
 }

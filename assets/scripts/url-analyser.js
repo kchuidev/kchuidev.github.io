@@ -65,13 +65,13 @@ function explainScheme(scheme) {
   let explanation_scheme;
   switch(scheme) {
     case("http"):
-      explanation_scheme = "<i>Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmitting hypermedia documents, such as HTML.</i><br><br><a class='external_links' href='https://en.wikipedia.org/wiki/HTTP' target='_blank'>HTTP on Wikipedia</a>";
+      explanation_scheme = "<i>Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmitting hypermedia documents, such as HTML.</i><a class='external_links scheme_explanations' href='https://en.wikipedia.org/wiki/HTTP' target='_blank'>HTTP on Wikipedia</a>";
       return explanation_scheme;
     case("https"):
-      explanation_scheme = "<i>HyperText Transfer Protocol Secure</b> (HTTPS) is an encrypted version of the HTTP protocol. It uses TLS to encrypt all communication between a client and a server. This secure connection allows clients to safely exchange sensitive data with a server, such as when performing banking activities or online shopping.</i><br><br><a class='external_links' href='https://en.wikipedia.org/wiki/HTTPS' target='_blank'>HTTPS on Wikipedia</a>";
+      explanation_scheme = "<i>HyperText Transfer Protocol Secure</b> (HTTPS) is an encrypted version of the HTTP protocol. It uses TLS to encrypt all communication between a client and a server. This secure connection allows clients to safely exchange sensitive data with a server, such as when performing banking activities or online shopping.</i><a class='external_links scheme_explanations' href='https://en.wikipedia.org/wiki/HTTPS' target='_blank'>HTTPS on Wikipedia</a>";
       return explanation_scheme;
     case("ftp"):
-      explanation_scheme = "<i>File Transfer Protocol (FTP) is an insecure protocol for transferring files from one host to another over the Internet.</i><br><br><a class='external_links' href='https://en.wikipedia.org/wiki/File_Transfer_Protocol' target='_blank'>FTP on Wikipedia</a>";
+      explanation_scheme = "<i>File Transfer Protocol (FTP) is an insecure protocol for transferring files from one host to another over the Internet.</i><a class='external_links scheme_explanations' href='https://en.wikipedia.org/wiki/File_Transfer_Protocol' target='_blank'>FTP on Wikipedia</a>";
       return explanation_scheme;
     default:
       return explanation_scheme;
@@ -96,7 +96,7 @@ function displayResult(url_analysed) {
   display_url_scheme_cell_label.innerHTML = "scheme";
   let display_url_scheme_cell_value = display_url_scheme_row.insertCell(-1);
   display_url_scheme_cell_value.classList.add("values");
-  display_url_scheme_cell_value.innerHTML = url_analysed.scheme;
+  display_url_scheme_cell_value.innerHTML = "<span id='url_scheme_cell_value'>" + url_analysed.scheme + "</span>";
   if ( explainScheme(url_analysed.scheme) ) {
     display_url_scheme_cell_value.innerHTML += "<br><br>" + explainScheme(url_analysed.scheme);
   }
@@ -114,7 +114,7 @@ function displayResult(url_analysed) {
     display_url_username_cell_label.innerHTML = "username";
     let display_url_username_cell_value = display_url_username_row.insertCell(-1);
     display_url_username_cell_value.classList.add("values");
-    display_url_username_cell_value.innerHTML = url_analysed.username;
+    display_url_username_cell_value.innerHTML = "<span id='url_username_cell_value'>" + url_analysed.username + "</span>";
   }
 
   if ( url_analysed.password ) {
@@ -130,7 +130,7 @@ function displayResult(url_analysed) {
     display_url_password_cell_label.innerHTML = "password";
     let display_url_password_cell_value = display_url_password_row.insertCell(-1);
     display_url_password_cell_value.classList.add("values");
-    display_url_password_cell_value.innerHTML = url_analysed.password;
+    display_url_password_cell_value.innerHTML = "<span id='url_password_cell_value'>" + url_analysed.password + "</span>";
   }
 
   if ( url_analysed.host ) {
@@ -145,7 +145,7 @@ function displayResult(url_analysed) {
     display_url_host_cell_label.innerHTML = "host";
     let display_url_host_cell_value = display_url_host_row.insertCell(-1);
     display_url_host_cell_value.classList.add("values");
-    display_url_host_cell_value.innerHTML = url_analysed.host;
+    display_url_host_cell_value.innerHTML = "<span id='url_host_cell_value'>" + url_analysed.host + "</span>";
   }
 
   if ( url_analysed.port ) {
@@ -161,7 +161,7 @@ function displayResult(url_analysed) {
     display_url_port_cell_label.innerHTML = "port";
     let display_url_port_cell_value = display_url_port_row.insertCell(-1);
     display_url_port_cell_value.classList.add("values");
-    display_url_port_cell_value.innerHTML = url_analysed.port;
+    display_url_port_cell_value.innerHTML = "<span id='url_port_cell_value'>" + url_analysed.port + "</span>";
   }
 
   let display_url_path = document.createElement("span");
@@ -175,7 +175,7 @@ function displayResult(url_analysed) {
   display_url_path_cell_label.innerHTML = "path";
   let display_url_path_cell_value = display_url_path_row.insertCell(-1);
   display_url_path_cell_value.classList.add("values");
-  display_url_path_cell_value.innerHTML = url_analysed.path;
+  display_url_path_cell_value.innerHTML = "<span id='url_path_cell_value'>" + url_analysed.path + "</span>";
 
   if ( url_analysed.path.length > 1 ) {
     let symbol_path = "&#8627;&#xFE0E;";
@@ -199,7 +199,7 @@ function displayResult(url_analysed) {
     display_url_query_string_cell_label.innerHTML = "query string";
     let display_url_query_string_cell_value = display_url_query_string_row.insertCell(-1);
     display_url_query_string_cell_value.classList.add("values");
-    display_url_query_string_cell_value.innerHTML = url_analysed.query_string + "<br><br>";
+    display_url_query_string_cell_value.innerHTML = "<span id='url_query_string_cell_value'>" + url_analysed.query_string + "</span><br><br>";
 
     let url_analysed_query_strings = url_analysed.query_string.split("&");
     url_analysed_query_strings.forEach((query_string) => {
@@ -231,7 +231,7 @@ function displayResult(url_analysed) {
     display_url_fragment_cell_label.innerHTML = "fragment";
     let display_url_fragment_cell_value = display_url_fragment_row.insertCell(-1);
     display_url_fragment_cell_value.classList.add("values");
-    display_url_fragment_cell_value.innerHTML = url_analysed.fragment;
+    display_url_fragment_cell_value.innerHTML = "<span id='url_fragment_cell_value'>" + url_analysed.fragment + "</span>";
   }
 
   result.classList.remove("hidden");
